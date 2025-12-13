@@ -301,3 +301,70 @@ footer {
     flex-wrap: wrap;
   }
 }
+/* Mobile fixes */
+* { box-sizing: border-box; }
+img { max-width: 100%; height: auto; display: block; }
+
+.container, .section, section {
+  width: min(1100px, 100%);
+  padding-left: 16px;
+  padding-right: 16px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Top bar: compacta no mobile */
+.top-bar, .topbar, .header-top, .contact-bar {
+  padding: 10px 16px !important;
+}
+.top-bar .row, .topbar .row, .contact-bar .row,
+.top-bar .container, .topbar .container, .contact-bar .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 14px;
+  align-items: center;
+}
+.top-bar a, .topbar a, .contact-bar a {
+  word-break: break-word;
+}
+
+/* Hero: evita cortar texto */
+.hero, .hero-section, header.hero {
+  min-height: 70vh;
+  height: auto !important;
+  padding-top: 70px;
+  padding-bottom: 40px;
+}
+.hero h1, .hero-title {
+  font-size: clamp(28px, 7vw, 52px);
+  line-height: 1.05;
+  margin: 0 0 12px 0;
+}
+.hero p, .hero-subtitle {
+  font-size: clamp(14px, 3.8vw, 18px);
+  line-height: 1.4;
+  max-width: 38ch;
+}
+
+/* Botões: melhor toque no mobile */
+button, .btn, a.btn {
+  min-height: 44px;
+  padding: 12px 16px;
+}
+
+/* Imagens em cards/sections: remove “buraco” gigante */
+.service-image, .services img, .about img, .card img {
+  width: 100%;
+  height: auto;
+}
+.card-media img, .services-media img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* Seções: menos espaço em branco */
+section { padding-top: 40px; padding-bottom: 40px; }
+@media (max-width: 768px) {
+  section { padding-top: 28px; padding-bottom: 28px; }
+}
