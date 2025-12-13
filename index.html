@@ -1,70 +1,125 @@
 <!DOCTYPE html>
-<html lang="en-AU">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campos Law Practice - Migration Law Specialist</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Campos Law Practice</title>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
+  <!-- ===== HEADER ===== -->
+  <header class="top-header">
+    <div class="topbar">
+      <div class="contact-top">
+        <p>📍 Sunshine Coast, QLD, Australia</p>
+        <p>📞 +61 432 006 005</p>
+        <p>✉️ info@camposlawpractice.com.au</p>
+      </div>
+      <div class="lang-switch">
+        <img src="https://flagcdn.com/w40/au.png" alt="English" id="en-btn" class="flag" />
+        <img src="https://flagcdn.com/w40/br.png" alt="Portuguese" id="pt-btn" class="flag" />
+      </div>
+    </div>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <img src="img/logo.png" alt="Campos Law Practice Logo">
-            </div>
-            <ul>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#about">About Us</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+    <nav class="navbar">
+      <div class="brand">
+        <img src="img/logoclp.jpg" alt="Campos Law Practice Logo" class="logo-large" />
+        <div class="brand-text">
+          <h1>Campos Law Practice</h1>
+          <p>Migration Law</p>
+        </div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="#home" data-key="nav-home"></a></li>
+        <li><a href="#about" data-key="nav-about"></a></li>
+        <li><a href="#services" data-key="nav-services"></a></li>
+        <!--<li><a href="#faq" data-key="nav-faq"></a></li>-->
+        <li><a href="#contact" data-key="nav-contact"></a></li>
+      </ul>
+      <a href="#appointment" class="btn-nav" data-key="appointment-cta"></a>
+    </nav>
+  </header>
 
-    <main>
-        <section class="hero">
-            <h1>Expert Migration Law Services in Australia</h1>
-            <p>Your trusted partner in navigating the complexities of Australian migration law.</p>
-            <a href="https://booking.example.com" class="cta-button">Book a Consultation</a>
-        </section>
+  <!-- ===== HERO ===== -->
+  <section id="home" class="hero">
+    <div class="hero-content">
+      <h1 data-key="hero-title"></h1>
+      <p data-key="hero-subtitle"></p>
+      <a href="#contact" class="btn" data-key="hero-cta"></a>
+    </div>
+  </section>
 
-        <section id="services">
-            <h2>Our Services</h2>
-            <div class="service-item">
-                <h3>Visa Applications</h3>
-                <p>Assistance with a wide range of visa applications, including skilled, family, and student visas.</p>
-            </div>
-            <div class="service-item">
-                <h3>Citizenship & Permanent Residency</h3>
-                <p>Guidance and support on your journey to becoming an Australian citizen or permanent resident.</p>
-            </div>
-            <div class="service-item">
-                <h3>Appeals & Reviews</h3>
-                <p>Representation in merits review and judicial review proceedings for visa refusals and cancellations.</p>
-            </div>
-        </section>
+  <!-- ===== ABOUT ===== -->
+  <section id="about" class="content-section two-column">
+    <div class="text">
+      <h2 data-key="about-title"></h2>
+      <p data-key="about-text"></p>
+    </div>
+    <img src="https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=800&q=60" alt="Law Office" />
+  </section>
 
-        <section id="about">
-            <h2>About Campos Law Practice</h2>
-            <p>Campos Law Practice is a boutique law firm dedicated to providing exceptional migration law services. We are committed to delivering personalised and effective solutions to our clients, ensuring a smooth and successful migration outcome. Our team of experienced professionals is here to guide you every step of the way.</p>
-        </section>
+  <!-- ===== SERVICES ===== -->
+  <section id="services" class="content-section two-column reverse">
+    <img src="https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&q=60" alt="Legal Services" />
+    <div class="text">
+      <h2 data-key="services-title"></h2>
+      <ul>
+        <li data-key="service1"></li>
+        <li data-key="service2"></li>
+        <li data-key="service3"></li>
+      </ul>
+    </div>
+  </section>
 
-        <section id="contact">
-            <h2>Contact Us</h2>
-            <p>Get in touch with us to discuss your migration needs.</p>
-            <ul>
-                <li><strong>Email:</strong> <a href="mailto:contact@camposlaw.com.au">contact@camposlaw.com.au</a></li>
-                <li><strong>Phone:</strong> +61 2 1234 5678</li>
-                <li><strong>Address:</strong> 123 Legal Lane, Sydney NSW 2000, Australia</li>
-            </ul>
-            <a href="https://booking.example.com" class="cta-button">Schedule an Appointment</a>
-        </section>
-    </main>
+ <!--  ===== FAQ ===== 
+  <section id="faq" class="content-section">
+    <h2 data-key="faq-title"></h2>
+    <div class="faq-item">
+      <h3 data-key="faq-q1"></h3>
+      <p data-key="faq-a1"></p>
+    </div>
+    <div class="faq-item">
+      <h3 data-key="faq-q2"></h3>
+      <p data-key="faq-a2"></p>
+    </div>
+  </section> -->
 
-    <footer>
-        <p>&copy; 2025 Campos Law Practice. All rights reserved.</p>
-    </footer>
+  <!-- ===== APPOINTMENT ===== -->
+  <section id="appointment" class="content-section highlight">
+    <h2 data-key="appointment-title"></h2>
+    <p data-key="appointment-text"></p>
+    <p data-key="appointment-text2"></p>
+    <br/>
+    <a href="#contact" class="btn" data-key="appointment-cta"></a>
+  </section>
 
-    <script src="script.js"></script>
+  <!-- ===== CONTACT ===== -->
+  <section id="contact" class="content-section contact-section">
+    <div class="contact-info">
+      <h2 data-key="contact-title"></h2>
+      <p>📍 Sunshine Coast, QLD, Australia</p>
+      <p>📞 +61 432 006 005</p>
+      <p>✉️ info@camposlawpractice.com.au</p>
+    </div>
+    <form id="contact-form">
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Your Email" required>
+      <textarea id="message" placeholder="Your Message or Consultation Request" required></textarea>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+    <!--<form>
+      <input type="text" placeholder="Name" data-key="form-name" required />
+      <input type="email" placeholder="Email" data-key="form-email" required />
+      <textarea placeholder="Message" data-key="form-message"></textarea>
+      <button type="submit" class="btn" data-key="form-submit"></button>
+    </form>-->
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; <span id="year"></span> Campos Law Practice. All rights reserved.</p>
+  </footer>
 </body>
 </html>
