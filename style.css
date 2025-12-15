@@ -25,22 +25,80 @@ body {
   align-items: center;
   padding: 0.5rem 2rem;
   font-size: 0.9rem;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .contact-top {
   display: flex;
   gap: 1.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  white-space: nowrap;
+}
+
+.contact-item a {
+  color: #ddd;
+  text-decoration: none;
+}
+
+.contact-item a:hover {
+  color: var(--accent-color);
+}
+
+.icon {
+  font-size: 1rem;
+  line-height: 1;
 }
 
 .lang-switch {
   display: flex;
   gap: 0.5rem;
+  align-items: center;
 }
 
 .flag {
   width: 25px;
   cursor: pointer;
   border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.3);
+  transition: transform 0.2s ease;
+}
+
+.flag:hover {
+  transform: scale(1.05);
+}
+
+/* ===== TOPBAR - RESPONSIVE ===== */
+@media (max-width: 768px) {
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0.8rem 1rem;
+    gap: 0.6rem;
+  }
+
+  .contact-top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.3rem;
+  }
+
+  .lang-switch {
+    align-self: flex-end;
+  }
+
+  .contact-item span,
+  .contact-item a {
+    font-size: 0.9rem;
+  }
 }
 
 /* ===== NAVBAR ===== */
@@ -244,6 +302,42 @@ form {
   gap: 1rem;
 }
 
+/* Garante que o botão tenha exatamente a mesma largura dos campos */
+#contact-form {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 1rem;
+}
+
+#contact-form input,
+#contact-form textarea,
+#contact-form button {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+#contact-form button {
+  padding: 0.8rem;
+  background-color: var(--accent-color);
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+@media (max-width: 768px) {
+  #contact-form button {
+    width: 100%;
+  }
+}
+
+#contact-form button:hover {
+  opacity: 0.85;
+}
+
 input, textarea {
   padding: 0.8rem;
   border: 1px solid #ccc;
@@ -301,70 +395,38 @@ footer {
     flex-wrap: wrap;
   }
 }
-/* Mobile fixes */
-* { box-sizing: border-box; }
-img { max-width: 100%; height: auto; display: block; }
 
-.container, .section, section {
-  width: min(1100px, 100%);
-  padding-left: 16px;
-  padding-right: 16px;
-  margin-left: auto;
-  margin-right: auto;
-}
+@media (max-width: 600px) {
+  .hero {
+    padding: 5rem 1.5rem;
+  }
 
-/* Top bar: compacta no mobile */
-.top-bar, .topbar, .header-top, .contact-bar {
-  padding: 10px 16px !important;
-}
-.top-bar .row, .topbar .row, .contact-bar .row,
-.top-bar .container, .topbar .container, .contact-bar .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px 14px;
-  align-items: center;
-}
-.top-bar a, .topbar a, .contact-bar a {
-  word-break: break-word;
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
 }
 
-/* Hero: evita cortar texto */
-.hero, .hero-section, header.hero {
-  min-height: 70vh;
-  height: auto !important;
-  padding-top: 70px;
-  padding-bottom: 40px;
-}
-.hero h1, .hero-title {
-  font-size: clamp(28px, 7vw, 52px);
-  line-height: 1.05;
-  margin: 0 0 12px 0;
-}
-.hero p, .hero-subtitle {
-  font-size: clamp(14px, 3.8vw, 18px);
-  line-height: 1.4;
-  max-width: 38ch;
-}
-
-/* Botões: melhor toque no mobile */
-button, .btn, a.btn {
-  min-height: 44px;
-  padding: 12px 16px;
-}
-
-/* Imagens em cards/sections: remove “buraco” gigante */
-.service-image, .services img, .about img, .card img {
-  width: 100%;
-  height: auto;
-}
-.card-media img, .services-media img {
-  aspect-ratio: 16 / 9;
-  object-fit: cover;
-  border-radius: 12px;
-}
-
-/* Seções: menos espaço em branco */
-section { padding-top: 40px; padding-bottom: 40px; }
+/* ===== RESPONSIVIDADE ===== */
 @media (max-width: 768px) {
-  section { padding-top: 28px; padding-bottom: 28px; }
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0.8rem 1rem;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+  }
+
+  .contact-top {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .lang-switch {
+    align-self: flex-end;
+  }
 }
