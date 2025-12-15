@@ -20,13 +20,13 @@
     "faq-q2": "Do you offer online consultations?",
     "faq-a2": "Yes, we provide online and in-person consultations by appointment.",
     "appointment-title": "Book a Consultation",
-    "appointment-text": "Schedule a 30-minute appointment for $190 or 60-minute for $350 (incl GST) with our migration law expert.",
+    "appointment-text": "Schedule a 30-minute appointment for $200 or 60-minute for $380 (incl GST) with our migration law expert.",
     "appointment-text2": "Please wait for the payment instructions, which will be sent by email prior to your appointment.",
     "appointment-cta": "Book Now",
     "contact-title": "Contact Us",
-    "form-name": "Name",
-    "form-email": "Email",
-    "form-message": "Message",
+    "form-name": "Your Name",
+    "form-email": "Your Email",
+    "form-message": "Your Message or Consultation Request",
     "form-submit": "Send Message"
   },
   "pt": {
@@ -50,13 +50,13 @@
     "faq-q2": "Vocês oferecem consultas online?",
     "faq-a2": "Sim, oferecemos consultas online e presenciais mediante agendamento.",
     "appointment-title": "Agende uma Consulta",
-    "appointment-text": "Agende uma consulta de 30 minutos por $190 ou 60 minutos por $350 (incl GST) com nossa especialista em direito de imigração.",
+    "appointment-text": "Agende uma consulta de 30 minutos por $200 ou 60 minutos por $380 (incl GST) com nossa especialista em direito de imigração.",
     "appointment-text2": "Favor aguardar as instruções para pagamento que serão enviadas por email antes da data agendada.",
     "appointment-cta": "Agendar Agora",
     "contact-title": "Fale Conosco",
-    "form-name": "Nome",
-    "form-email": "E-mail",
-    "form-message": "Mensagem",
+    "form-name": "Seu Nome",
+    "form-email": "Seu E-mail",
+    "form-message": "Sua Mensagem ou Solicitação de Consulta",
     "form-submit": "Enviar Mensagem"
   }
 }
