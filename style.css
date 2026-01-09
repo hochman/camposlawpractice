@@ -295,6 +295,15 @@ body {
   color: var(--text-color);
 }
 
+.contact-info a {
+  color: var(--accent-color);
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
 form {
   flex: 1;
   display: flex;
