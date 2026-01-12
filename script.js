@@ -9,31 +9,30 @@ document.addEventListener("DOMContentLoaded", () => {
     .then(res => res.json())
     .then(data => {
       const elements = document.querySelectorAll("[data-key]");
-      //const setLanguage = (lang) => {
-      //  elements.forEach(el => {
-      //    const key = el.getAttribute("data-key");
-      //    if (data[lang][key]) el.textContent = data[lang][key];
-      //  });
-      //};
+      
       const setLanguage = (lang) => {
-      // Atualiza textos normais
-      elements.forEach(el => {
-        const key = el.getAttribute("data-key");
-        if (data[lang][key]) el.textContent = data[lang][key];
-      });
+        // Atualiza textos normais
+        elements.forEach(el => {
+          const key = el.getAttribute("data-key");
+          if (data[lang][key]) el.textContent = data[lang][key];
+        });
 
-      // Atualiza placeholders
-      document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-        const key = el.getAttribute("data-i18n-placeholder");
-        if (data[lang][key]) el.placeholder = data[lang][key];
-      });
+        // Atualiza placeholders
+        document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (data[lang][key]) el.placeholder = data[lang][key];
+        });
 
-      // Atualiza botões com data-i18n
-      document.querySelectorAll("[data-i18n]").forEach(el => {
-        const key = el.getAttribute("data-i18n");
-        if (data[lang][key]) el.textContent = data[lang][key];
-      });
-    };
+        // Atualiza botões com data-i18n
+        document.querySelectorAll("[data-i18n]").forEach(el => {
+          const key = el.getAttribute("data-i18n");
+          if (data[lang][key]) el.textContent = data[lang][key];
+        });
+        
+        // Atualiza estado ativo dos botões
+        enBtn.classList.toggle('active', lang === 'en');
+        ptBtn.classList.toggle('active', lang === 'pt');
+      };
 
       setLanguage("en");
 
