@@ -405,69 +405,276 @@ body {
   margin-bottom: 2.5rem;
 }
 
-.reviews-container {
+/* ===== CAROUSEL ===== */
+.carousel-wrapper {
   display: flex;
-  justify-content: center;
-  margin-bottom: 2.5rem;
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
+  align-items: center;
+  gap: 1rem;
+  max-width: 760px;
+  margin: 0 auto 0;
 }
 
-.review-card {
-  background: white;
-  padding: 2.5rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.carousel-track-container {
   width: 100%;
 }
 
-.review-card.featured-review {
-  border: 2px solid var(--accent-color);
-  box-shadow: 0 6px 20px rgba(201, 164, 76, 0.15);
+.carousel-track-overflow {
+  overflow: hidden;
+  width: 100%;
 }
 
-.review-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+.carousel-track {
+  display: flex;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-.google-badge {
+.carousel-arrow {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  background: #f8f9fa;
-  padding: 0.5rem 1rem;
-  border-radius: 20px;
-  width: fit-content;
-  margin: 0 auto 1rem;
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #5f6368;
+  justify-content: center;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background 0.2s ease;
+  color: var(--primary-color);
 }
 
-.google-badge svg {
+.carousel-arrow svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--primary-color);
+  transition: stroke 0.2s ease;
+}
+
+.carousel-arrow:hover {
+  background: rgba(0,0,0,0.06);
+}
+
+/* Progress bar */
+.carousel-progress-track {
+  height: 3px;
+  background: #e8e8e8;
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.6rem;
+}
+
+.carousel-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: var(--accent-color);
+  border-radius: 2px;
+}
+
+.carousel-progress-bar.animating {
+  animation: carouselProgress 10s linear forwards;
+}
+
+@keyframes carouselProgress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Controls (play/pause + dots) */
+.carousel-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0.75rem 0 2rem;
+}
+
+.carousel-play-pause {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #aaa;
+  display: flex;
+  align-items: center;
+  padding: 2px;
+  transition: color 0.2s;
   flex-shrink: 0;
 }
 
+.carousel-play-pause:hover {
+  color: var(--primary-color);
+}
+
+.carousel-play-pause svg {
+  width: 14px;
+  height: 14px;
+}
+
+.carousel-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.carousel-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #d0d0d0;
+  cursor: pointer;
+  border: none;
+  padding: 0;
+  transition: background 0.25s ease, width 0.25s ease, border-radius 0.25s ease;
+}
+
+.carousel-dot.active {
+  background: var(--accent-color);
+  width: 24px;
+  border-radius: 4px;
+}
+
+/* ===== REVIEW CARD ===== */
+.review-card {
+  min-width: 100%;
+  box-sizing: border-box;
+  background: white;
+  padding: 2rem 2.5rem 1.75rem;
+  border-radius: 12px;
+  border: 1px solid #f0ece4;
+  text-align: left;
+}
+
+.review-top {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.1rem;
+}
+
+.google-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  background: #f8f9fa;
+  padding: 0.35rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #5f6368;
+  text-decoration: none;
+  transition: background 0.2s;
+  white-space: nowrap;
+}
+
+.google-badge:hover {
+  background: #eef0f4;
+}
+
 .stars {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.1rem;
   color: #ffc107;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.review-text-wrapper {
+  margin-bottom: 0.5rem;
 }
 
 .review-text {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
   font-style: italic;
-  color: var(--text-color);
-  line-height: 1.6;
-  margin-bottom: 1rem;
+  color: #555;
+  line-height: 1.75;
+  margin: 0 0 0.3rem;
+  font-size: 0.97rem;
 }
 
-.review-author {
+.review-text.expanded {
+  display: block;
+  overflow: visible;
+}
+
+.see-less-inline {
+  display: none;
+}
+
+.review-text.expanded .see-less-inline {
+  display: inline;
+}
+
+.see-more-btn,
+.see-less-btn {
+  background: none;
+  border: none;
   color: var(--accent-color);
+  cursor: pointer;
+  font-size: 0.85rem;
   font-weight: 600;
-  font-size: 0.95rem;
+  padding: 0;
+}
+
+.see-more-btn {
+  display: block;
+}
+
+.see-more-btn:hover,
+.see-less-btn:hover {
+  text-decoration: underline;
+}
+
+.review-divider {
+  height: 1px;
+  background: #f0ece4;
+  margin: 1rem 0 0.9rem;
+}
+
+.review-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.review-author-info {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.review-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.review-avatar-fallback {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+.review-name {
+  font-weight: 600;
+  color: var(--primary-color);
+  font-size: 0.9rem;
+}
+
+.review-date {
+  font-size: 0.8rem;
+  color: #aaa;
+  white-space: nowrap;
 }
 
 .google-reviews-link {
@@ -676,8 +883,13 @@ footer {
     font-size: 0.9rem;
   }
   
+  .carousel-arrow svg {
+    width: 22px;
+    height: 22px;
+  }
+
   .review-card {
-    padding: 1.8rem;
+    padding: 1.5rem 1.25rem;
   }
 }
 
@@ -701,4 +913,19 @@ footer {
   .brand-text h1 {
     font-size: 1.2rem;
   }
+
+  .qls-logo-nav {
+    height: 45px;
+  }
+}
+
+.qls-logo-nav {
+  height: 60px;
+  object-fit: contain;
+}
+
+.qls-logo {
+  height: 80px;
+  margin-top: 1rem;
+  object-fit: contain;
 }
