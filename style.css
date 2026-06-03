@@ -874,7 +874,13 @@ footer {
   display: contents;
 }
 
-/* QLS mobile badge (header + footer) — hidden by default, shown only on mobile */
+/* QLS topbar img (header, mobile only) */
+.qls-topbar-mobile {
+  display: none;
+  object-fit: contain;
+}
+
+/* QLS footer badge (footer, mobile only) */
 .qls-mobile-badge {
   display: none;
   flex-direction: column;
@@ -1009,11 +1015,8 @@ footer {
   }
 
   .qls-topbar-mobile {
-    display: flex;
-  }
-
-  .qls-topbar-mobile img {
-    height: 44px;
+    display: block;
+    height: 60px;
   }
 
   .qls-footer-mobile {
