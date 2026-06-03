@@ -1017,6 +1017,7 @@ footer {
   .qls-topbar-mobile {
     display: block;
     height: 60px;
+    margin-top: 5px;
   }
 
   .qls-footer-mobile {
