@@ -63,6 +63,13 @@ body {
   line-height: 1;
 }
 
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
 .lang-switch {
   display: flex;
   gap: 0.4rem;
@@ -112,12 +119,15 @@ body {
     position: relative;
   }
 
-  /* Posiciona seletor de idiomas no topo direito */
-  .lang-switch {
+  /* Posiciona lado direito do topbar no topo direito */
+  .topbar-right {
     position: absolute;
     top: 0.8rem;
     right: 1rem;
     z-index: 10;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
   }
 
   .contact-top {
@@ -125,6 +135,7 @@ body {
     align-items: flex-start;
     gap: 0.4rem;
     padding-top: 0.5rem;
+    padding-right: 70px;
   }
 
   .contact-item span,
@@ -997,27 +1008,12 @@ footer {
     display: none;
   }
 
-  .contact-top {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    gap: 1rem;
-  }
-
-  .contact-items {
-    display: flex;
-    flex-direction: column;
-    gap: 0.4rem;
-    padding-top: 0.5rem;
-  }
-
   .qls-topbar-mobile {
     display: flex;
-    flex-shrink: 0;
   }
 
   .qls-topbar-mobile img {
-    height: 48px;
+    height: 44px;
   }
 
   .qls-footer-mobile {
