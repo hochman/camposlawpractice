@@ -858,8 +858,8 @@ footer {
   }
 }
 
-/* Topbar email row — transparent on desktop, flex row on mobile */
-.contact-email-row {
+/* Contact items wrapper — transparent on desktop (items flow into contact-top flex) */
+.contact-items {
   display: contents;
 }
 
@@ -997,15 +997,23 @@ footer {
     display: none;
   }
 
-  .contact-email-row {
-    display: flex;
+  .contact-top {
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    gap: 1rem;
+  }
+
+  .contact-items {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 0.5rem;
   }
 
   .qls-topbar-mobile {
     display: flex;
+    flex-shrink: 0;
   }
 
   .qls-topbar-mobile img {
