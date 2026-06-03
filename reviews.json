@@ -70,5 +70,13 @@
     "review": "",
     "date": "2026-01-02",
     "image": "nelson.png"    
+  },
+  {
+    "name": "Mariana Sharpe",
+    "link": "https://maps.app.goo.gl/z2B5zXqUpghpCmYb8",
+    "stars": 5,
+    "review": "I had an amazing experience with Campos Law. They made a really stressful immigration process feel manageable. Clear advice, quick responses, and they genuinely cared about my case. Would 100% recommend if you want someone trustworthy and on your side.",
+    "date": "2026-06-02",
+    "image": "mariana.png"    
   }
 ]
