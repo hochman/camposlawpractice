@@ -206,28 +206,108 @@ fetch('reviews.json')
 
 var form = document.getElementById("contact-form");
 
+document.getElementById("form-referrer").value = document.referrer || "direct";
+
+(function collectVisitorMetadata() {
+  const ua = navigator.userAgent;
+
+  function getBrowser() {
+    if (/Edg\//.test(ua))     return "Edge "    + (ua.match(/Edg\/([\d.]+)/)     || ["","?"])[1];
+    if (/OPR\//.test(ua))     return "Opera "   + (ua.match(/OPR\/([\d.]+)/)     || ["","?"])[1];
+    if (/Chrome\//.test(ua))  return "Chrome "  + (ua.match(/Chrome\/([\d.]+)/)  || ["","?"])[1];
+    if (/Firefox\//.test(ua)) return "Firefox " + (ua.match(/Firefox\/([\d.]+)/) || ["","?"])[1];
+    if (/Safari\//.test(ua))  return "Safari "  + (ua.match(/Version\/([\d.]+)/) || ["","?"])[1];
+    return "Unknown";
+  }
+
+  function getDevice() {
+    if (/iPad/.test(ua))              return "Tablet";
+    if (/Mobi|Android|iPhone/.test(ua)) return "Mobile";
+    return "Desktop";
+  }
+
+  document.getElementById("form-browser").value     = getBrowser();
+  document.getElementById("form-device-type").value = getDevice() + " — " + window.screen.width + "x" + window.screen.height;
+
+  fetch("https://ipapi.co/json/")
+    .then(r => r.json())
+    .then(d => {
+      document.getElementById("form-ip").value      = d.ip      || "unavailable";
+      document.getElementById("form-country").value = d.country_name || "unavailable";
+    })
+    .catch(() => {
+      document.getElementById("form-ip").value      = "unavailable";
+      document.getElementById("form-country").value = "unavailable";
+    });
+})();
+
+var statusTimer = null;
+
+function showStatus(message, type) {
+  var status = document.getElementById("my-form-status");
+  clearTimeout(statusTimer);
+  status.className = "";
+  status.innerHTML = message;
+  void status.offsetWidth;
+  status.className = "visible status-" + type;
+  statusTimer = setTimeout(() => {
+    status.classList.remove("visible");
+    setTimeout(() => { status.innerHTML = ""; status.className = ""; }, 500);
+  }, 5000);
+}
+
 async function handleSubmit(event) {
   event.preventDefault();
-  var status = document.getElementById("my-form-status");
   var data = new FormData(event.target);
+  const s = (i18nData && i18nData[currentLang]) || {};
   fetch(event.target.action, {
     method: form.method,
     body: data,
     headers: { 'Accept': 'application/json' }
   }).then(response => {
     if (response.ok) {
-      status.innerHTML = "Thanks for your submission!";
+      showStatus(s['form-success'] || "Thanks for your submission!", "success");
       form.reset();
+      referralOther.style.display = "none";
+      referralOther.required = false;
+      referralSelect.style.color = "#757575";
     } else {
       response.json().then(data => {
-        status.innerHTML = Object.hasOwn(data, 'errors')
+        const msg = Object.hasOwn(data, 'errors')
           ? data["errors"].map(e => e["message"]).join(", ")
-          : "Oops! There was a problem submitting your form";
+          : (s['form-error'] || "Oops! There was a problem submitting your form");
+        showStatus(msg, "error");
       });
     }
   }).catch(() => {
-    status.innerHTML = "Oops! There was a problem submitting your form";
+    showStatus(s['form-error'] || "Oops! There was a problem submitting your form", "error");
   });
 }
+
+function getValidationMessage(field) {
+  const s = (i18nData && i18nData[currentLang]) || {};
+  if (field.validity.typeMismatch) return s['form-invalid-email'] || 'Please enter a valid email address.';
+  return s['form-required'] || 'Please fill in this field.';
+}
+
+form.querySelectorAll('[required]').forEach(field => {
+  field.addEventListener('invalid', () => field.setCustomValidity(getValidationMessage(field)));
+  field.addEventListener('input',   () => field.setCustomValidity(''));
+});
+
+const referralSelect = document.getElementById("how-did-you-hear");
+const referralOther = document.getElementById("how-did-you-hear-other");
+
+referralOther.addEventListener('invalid', () => referralOther.setCustomValidity(getValidationMessage(referralOther)));
+referralOther.addEventListener('input',   () => referralOther.setCustomValidity(''));
+
+referralSelect.style.color = "#757575";
+
+referralSelect.addEventListener("change", () => {
+  referralSelect.style.color = referralSelect.value ? "var(--text-color)" : "#757575";
+  const isOther = referralSelect.value === "other";
+  referralOther.style.display = isOther ? "block" : "none";
+  referralOther.required = isOther;
+});
 
 form.addEventListener("submit", handleSubmit);

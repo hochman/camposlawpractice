@@ -162,9 +162,26 @@
       <a href="https://www.qls.com.au/register-of-solicitors/gilmara-campos-alves-de-melo" target="_blank" rel="noopener noreferrer"><img src="img/qls-member.png" alt="Queensland Law Society Member" class="qls-logo" /></a>
     </div>
     <form action="https://formspree.io/f/mpqqzvgr" method="POST" target="_top" id="contact-form">
+      <input type="hidden" name="referrer" id="form-referrer">
+      <input type="hidden" name="browser" id="form-browser">
+      <input type="hidden" name="device-type" id="form-device-type">
+      <input type="hidden" name="ip-address" id="form-ip">
+      <input type="hidden" name="country" id="form-country">
       <input type="text" name="name" id="name" data-i18n-placeholder="form-name" placeholder="Your Name" required>
       <input type="email" name="email" id="email" data-i18n-placeholder="form-email" placeholder="Your Email" required>
       <textarea id="message" name="message" data-i18n-placeholder="form-message" placeholder="Your Message or Consultation Request" required></textarea>
+      <select name="how-did-you-hear" id="how-did-you-hear">
+        <option value="" disabled selected data-key="form-referral-label"></option>
+        <option value="google-search" data-key="form-referral-google-search"></option>
+        <option value="google-maps" data-key="form-referral-google-maps"></option>
+        <option value="friend-family" data-key="form-referral-friend"></option>
+        <option value="facebook" data-key="form-referral-facebook"></option>
+        <option value="instagram" data-key="form-referral-instagram"></option>
+        <option value="linkedin" data-key="form-referral-linkedin"></option>
+        <option value="professional" data-key="form-referral-professional"></option>
+        <option value="other" data-key="form-referral-other-option"></option>
+      </select>
+      <input type="text" name="how-did-you-hear-other" id="how-did-you-hear-other" data-i18n-placeholder="form-referral-other-detail" style="display:none">
       <button type="submit" class="btn" data-i18n="form-submit">Send Message</button>
       <p id="my-form-status"></p>
     </form>
