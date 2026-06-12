@@ -772,6 +772,7 @@ form {
 
 #contact-form input,
 #contact-form textarea,
+#contact-form select,
 #contact-form button {
   width: 100%;
   box-sizing: border-box;
@@ -794,18 +795,59 @@ form {
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-input, textarea {
+#my-form-status {
+  opacity: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity 0.5s ease, max-height 0.4s ease;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 0;
+}
+
+#my-form-status.visible {
+  opacity: 1;
+  max-height: 80px;
+  padding: 0.75rem 1rem;
+}
+
+#my-form-status.status-success {
+  background: #f0faf4;
+  border-left: 3px solid #3a8f5e;
+  color: #2d6e47;
+}
+
+#my-form-status.status-error {
+  background: #fdf0f0;
+  border-left: 3px solid #c0392b;
+  color: #a93226;
+}
+
+input, textarea, select {
   padding: 0.8rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   width: 100%;
   font-family: var(--font-body);
+  font-size: 1rem;
   transition: border-color 0.3s ease;
+  background-color: #fff;
+  color: var(--text-color);
 }
 
-input:focus, textarea:focus {
+input:focus, textarea:focus, select:focus {
   outline: none;
   border-color: var(--accent-color);
+}
+
+input::placeholder, textarea::placeholder {
+  color: #757575;
+}
+
+select option {
+  color: var(--text-color);
 }
 
 textarea {
