@@ -262,9 +262,11 @@ function initReviewsCarousel(reviews) {
     cards.push(card);
 
     if (hasText) {
-      const textEl     = card.querySelector('.review-text');
-      const seeMoreBtn = card.querySelector('.see-more-btn');
-      const seeLessBtn = card.querySelector('.see-less-btn');
+      const textEl        = card.querySelector('.review-text');
+      const seeMoreBtn    = card.querySelector('.see-more-btn');
+      const seeLessBtn    = card.querySelector('.see-less-btn');
+      const seeLessInline = card.querySelector('.see-less-inline');
+      let needsTruncation = false;
       requestAnimationFrame(() => {
         const lineH = parseFloat(getComputedStyle(textEl).lineHeight);
         textEl.style.display = 'block';
@@ -272,7 +274,12 @@ function initReviewsCarousel(reviews) {
         const fullH = textEl.scrollHeight;
         textEl.style.display = '';
         textEl.style.overflow = '';
-        if (fullH > lineH * 4 + 4) seeMoreBtn.style.display = 'block';
+        needsTruncation = fullH > lineH * 4 + 4;
+        if (needsTruncation) {
+          seeMoreBtn.style.display = 'block';
+        } else if (seeLessInline) {
+          seeLessInline.style.display = 'none';
+        }
       });
       seeMoreBtn.addEventListener('click', () => {
         textEl.classList.add('expanded');
@@ -280,7 +287,7 @@ function initReviewsCarousel(reviews) {
       });
       seeLessBtn.addEventListener('click', () => {
         textEl.classList.remove('expanded');
-        seeMoreBtn.style.display = 'block';
+        if (needsTruncation) seeMoreBtn.style.display = 'block';
       });
     }
 
