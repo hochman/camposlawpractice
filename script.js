@@ -4,16 +4,17 @@ let i18nData = null;
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
 
+  // ===== SMOOTH SCROLL =====
   function smoothScrollTo(targetY) {
     const startY = window.scrollY;
-    const diff = targetY - startY;
+    const diff   = targetY - startY;
     const duration = Math.min(Math.max(Math.abs(diff) * 0.4, 400), 900);
     let start = null;
-    function step(timestamp) {
-      if (!start) start = timestamp;
-      const elapsed = timestamp - start;
+    function step(ts) {
+      if (!start) start = ts;
+      const elapsed  = ts - start;
       const progress = Math.min(elapsed / duration, 1);
-      const ease = 1 - Math.pow(1 - progress, 3);
+      const ease     = 1 - Math.pow(1 - progress, 3);
       window.scrollTo(0, startY + diff * ease);
       if (elapsed < duration) requestAnimationFrame(step);
     }
@@ -21,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   function getHeaderHeight() {
-    return document.querySelector('.top-header').offsetHeight;
+    return document.getElementById('site-header').offsetHeight;
   }
 
   function updateScrollMargins() {
@@ -34,16 +35,17 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener('resize', updateScrollMargins);
 
   document.querySelectorAll('a[href^="#"]').forEach(link => {
-    link.addEventListener("click", function (e) {
-      const target = document.querySelector(this.getAttribute("href"));
+    link.addEventListener('click', function (e) {
+      const target = document.querySelector(this.getAttribute('href'));
       if (!target) return;
       e.preventDefault();
       smoothScrollTo(target.getBoundingClientRect().top + window.scrollY - getHeaderHeight());
     });
   });
 
-  const hamburgerBtn = document.getElementById('hamburger-btn');
-  const navLinksList = document.querySelector('.nav-links');
+  // ===== HAMBURGER =====
+  const hamburgerBtn  = document.getElementById('hamburger-btn');
+  const navLinksList  = document.getElementById('nav-links');
 
   function closeMenu() {
     navLinksList.classList.remove('open');
@@ -51,64 +53,117 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgerBtn.setAttribute('aria-expanded', 'false');
   }
 
-  hamburgerBtn.addEventListener('click', (e) => {
+  hamburgerBtn.addEventListener('click', e => {
     e.stopPropagation();
     const isOpen = navLinksList.classList.toggle('open');
     hamburgerBtn.classList.toggle('open', isOpen);
     hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
   });
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', closeMenu);
-  });
+  document.querySelectorAll('.nav-links a').forEach(a => a.addEventListener('click', closeMenu));
+  document.addEventListener('click', e => { if (!e.target.closest('.navbar')) closeMenu(); });
 
-  document.addEventListener('click', (e) => {
-    if (!e.target.closest('.navbar')) closeMenu();
-  });
-
+  // ===== ACTIVE NAV =====
   function updateActiveNav() {
-    const offset = getHeaderHeight() + 10;
+    const offset   = getHeaderHeight() + 10;
     const sections = document.querySelectorAll('section[id]');
-    const links = document.querySelectorAll('.nav-links a[href^="#"]');
-    let current = '';
+    const links    = document.querySelectorAll('.nav-links a[href^="#"]');
     const atBottom = window.innerHeight + window.scrollY >= document.body.offsetHeight - 10;
+    let current    = '';
     if (atBottom) {
       current = sections[sections.length - 1].id;
     } else {
-      sections.forEach(section => {
-        if (section.getBoundingClientRect().top <= offset) current = section.id;
+      sections.forEach(s => {
+        if (s.getBoundingClientRect().top <= offset) current = s.id;
       });
     }
-    links.forEach(link => {
-      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
-    });
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
   }
 
   window.addEventListener('scroll', updateActiveNav, { passive: true });
   updateActiveNav();
 
-  const enBtn = document.getElementById("en-btn");
-  const ptBtn = document.getElementById("pt-btn");
+  // ===== SCROLL ANIMATIONS =====
+  const animObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animated');
+        animObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
 
-  fetch("languages.json")
+  document.querySelectorAll('[data-animate]').forEach(el => animObserver.observe(el));
+
+  // ===== COUNTER ANIMATION =====
+  function animateCounter(el) {
+    const target   = parseInt(el.dataset.count);
+    const suffix   = el.dataset.suffix || '';
+    const duration = 1400;
+    const start    = performance.now();
+    function update(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const ease     = 1 - Math.pow(1 - progress, 3);
+      el.textContent = Math.floor(ease * target) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
+
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateCounter(entry.target);
+        counterObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+  // ===== FAQ ACCORDION =====
+  document.querySelectorAll('.faq-q').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      const answer = btn.nextElementSibling;
+
+      document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(other => {
+        if (other !== btn) {
+          other.setAttribute('aria-expanded', 'false');
+          other.nextElementSibling.style.maxHeight = '0';
+        }
+      });
+
+      btn.setAttribute('aria-expanded', String(!isOpen));
+      answer.style.maxHeight = isOpen ? '0' : answer.scrollHeight + 'px';
+    });
+  });
+
+  // ===== I18N =====
+  const enBtn = document.getElementById('en-btn');
+  const ptBtn = document.getElementById('pt-btn');
+
+  fetch('languages.json')
     .then(res => res.json())
     .then(data => {
       i18nData = data;
-      const elements = document.querySelectorAll("[data-key]");
+      const keyEls         = document.querySelectorAll('[data-key]');
+      const placeholderEls = document.querySelectorAll('[data-i18n-placeholder]');
+      const i18nEls        = document.querySelectorAll('[data-i18n]');
 
       const setLanguage = (lang) => {
         currentLang = lang;
 
-        elements.forEach(el => {
-          const key = el.getAttribute("data-key");
-          if (data[lang][key]) el.textContent = data[lang][key];
+        keyEls.forEach(el => {
+          const key = el.getAttribute('data-key');
+          if (data[lang][key] !== undefined) el.textContent = data[lang][key];
         });
-        document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
-          const key = el.getAttribute("data-i18n-placeholder");
+        placeholderEls.forEach(el => {
+          const key = el.getAttribute('data-i18n-placeholder');
           if (data[lang][key]) el.placeholder = data[lang][key];
         });
-        document.querySelectorAll("[data-i18n]").forEach(el => {
-          const key = el.getAttribute("data-i18n");
+        i18nEls.forEach(el => {
+          const key = el.getAttribute('data-i18n');
           if (data[lang][key]) el.textContent = data[lang][key];
         });
 
@@ -118,21 +173,26 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.review-date[data-date]').forEach(el => {
           el.textContent = getRelativeDate(el.dataset.date);
         });
-
         document.querySelectorAll('.see-more-btn').forEach(btn => {
           btn.textContent = data[lang]['see-more'];
         });
         document.querySelectorAll('.see-less-btn').forEach(btn => {
           btn.textContent = data[lang]['see-less'];
         });
+
+        // re-set FAQ open heights after text reflow
+        document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(btn => {
+          btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
+        });
       };
 
-      setLanguage("en");
-      enBtn.addEventListener("click", () => setLanguage("en"));
-      ptBtn.addEventListener("click", () => setLanguage("pt"));
+      setLanguage('en');
+      enBtn.addEventListener('click', () => setLanguage('en'));
+      ptBtn.addEventListener('click', () => setLanguage('pt'));
     });
 });
 
+// ===== RELATIVE DATE =====
 function getRelativeDate(dateStr) {
   const s = (i18nData && i18nData[currentLang]) || {};
   const t = (key, fallback) => s[key] || fallback;
@@ -148,9 +208,10 @@ function getRelativeDate(dateStr) {
   return `${y} ${y === 1 ? t('date-year-ago', 'year ago') : t('date-years-ago', 'years ago')}`;
 }
 
+// ===== REVIEWS CAROUSEL =====
 function initReviewsCarousel(reviews) {
-  const track       = document.getElementById('reviews-carousel');
-  const dotsEl      = document.getElementById('carousel-dots');
+  const track        = document.getElementById('reviews-carousel');
+  const dotsEl       = document.getElementById('carousel-dots');
   const playPauseBtn = document.getElementById('carousel-play-pause');
   const progressBar  = document.getElementById('carousel-progress-bar');
   const iconPause    = playPauseBtn.querySelector('.icon-pause');
@@ -160,12 +221,7 @@ function initReviewsCarousel(reviews) {
   let autoInterval;
   const cards = [];
 
-  const googleSVG = `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/>
-    <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/>
-    <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/>
-    <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/>
-  </svg>`;
+  const googleSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>`;
 
   reviews.forEach((review, i) => {
     const stars   = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
@@ -178,6 +234,7 @@ function initReviewsCarousel(reviews) {
 
     const seeMoreLabel = (i18nData && i18nData[currentLang] && i18nData[currentLang]['see-more']) || 'See more';
     const seeLessLabel = (i18nData && i18nData[currentLang] && i18nData[currentLang]['see-less']) || 'See less';
+
     const textHTML = hasText ? `
       <div class="review-text-wrapper">
         <div class="review-text">"${review.review.replace(/\n/g, '<br>')}"<span class="see-less-inline"> <button class="see-less-btn">${seeLessLabel}</button></span></div>
@@ -287,85 +344,42 @@ fetch('reviews.json')
   .then(res => res.json())
   .then(reviews => initReviewsCarousel(reviews));
 
-var form = document.getElementById("contact-form");
+// ===== CONTACT FORM =====
+var form = document.getElementById('contact-form');
 
-document.getElementById("form-referrer").value = document.referrer || "direct";
+document.getElementById('form-referrer').value = document.referrer || 'direct';
 
 (function collectVisitorMetadata() {
-  const ua = navigator.userAgent;
-
   function getBrowser() {
-    if (/Edg\//.test(ua))     return "Edge "    + (ua.match(/Edg\/([\d.]+)/)     || ["","?"])[1];
-    if (/OPR\//.test(ua))     return "Opera "   + (ua.match(/OPR\/([\d.]+)/)     || ["","?"])[1];
-    if (/Chrome\//.test(ua))  return "Chrome "  + (ua.match(/Chrome\/([\d.]+)/)  || ["","?"])[1];
-    if (/Firefox\//.test(ua)) return "Firefox " + (ua.match(/Firefox\/([\d.]+)/) || ["","?"])[1];
-    if (/Safari\//.test(ua))  return "Safari "  + (ua.match(/Version\/([\d.]+)/) || ["","?"])[1];
-    return "Unknown";
+    const ua = navigator.userAgent;
+    if (ua.includes('Edg/'))    return 'Edge';
+    if (ua.includes('OPR/'))    return 'Opera';
+    if (ua.includes('Chrome/')) return 'Chrome';
+    if (ua.includes('Firefox/'))return 'Firefox';
+    if (ua.includes('Safari/')) return 'Safari';
+    return 'Other';
   }
-
   function getDevice() {
-    if (/iPad/.test(ua))              return "Tablet";
-    if (/Mobi|Android|iPhone/.test(ua)) return "Mobile";
-    return "Desktop";
+    const ua = navigator.userAgent;
+    if (/iPad/.test(ua))                    return 'Tablet';
+    if (/Mobi|Android|iPhone/.test(ua))     return 'Mobile';
+    return 'Desktop';
   }
 
-  document.getElementById("form-browser").value     = getBrowser();
-  document.getElementById("form-device-type").value = getDevice() + " — " + window.screen.width + "x" + window.screen.height;
+  document.getElementById('form-browser').value     = getBrowser();
+  document.getElementById('form-device-type').value = getDevice() + ' — ' + window.screen.width + 'x' + window.screen.height;
 
-  fetch("https://ipapi.co/json/")
+  fetch('https://ipapi.co/json/')
     .then(r => r.json())
     .then(d => {
-      document.getElementById("form-ip").value      = d.ip      || "unavailable";
-      document.getElementById("form-country").value = d.country_name || "unavailable";
+      document.getElementById('form-ip').value      = d.ip           || 'unavailable';
+      document.getElementById('form-country').value = d.country_name || 'unavailable';
     })
     .catch(() => {
-      document.getElementById("form-ip").value      = "unavailable";
-      document.getElementById("form-country").value = "unavailable";
+      document.getElementById('form-ip').value      = 'unavailable';
+      document.getElementById('form-country').value = 'unavailable';
     });
 })();
-
-var statusTimer = null;
-
-function showStatus(message, type) {
-  var status = document.getElementById("my-form-status");
-  clearTimeout(statusTimer);
-  status.className = "";
-  status.innerHTML = message;
-  void status.offsetWidth;
-  status.className = "visible status-" + type;
-  statusTimer = setTimeout(() => {
-    status.classList.remove("visible");
-    setTimeout(() => { status.innerHTML = ""; status.className = ""; }, 500);
-  }, 5000);
-}
-
-async function handleSubmit(event) {
-  event.preventDefault();
-  var data = new FormData(event.target);
-  const s = (i18nData && i18nData[currentLang]) || {};
-  fetch(event.target.action, {
-    method: form.method,
-    body: data,
-    headers: { 'Accept': 'application/json' }
-  }).then(response => {
-    if (response.ok) {
-      showStatus(s['form-success'] || "Thanks for your submission!", "success");
-      form.reset();
-      referralOther.style.display = "none";
-      referralOther.required = false;
-      referralSelect.style.color = "#757575";
-    } else {
-      response.json().then(data => {
-        const msg = Object.hasOwn(data, 'errors')
-          ? data["errors"].map(e => e["message"]).join(", ")
-          : (s['form-error'] || "Oops! There was a problem submitting your form");
-        showStatus(msg, "error");
-      });
-    }
-  }).catch(() => {
-    showStatus(s['form-error'] || "Oops! There was a problem submitting your form", "error");
-  });
-}
 
 function getValidationMessage(field) {
   const s = (i18nData && i18nData[currentLang]) || {};
@@ -378,19 +392,58 @@ form.querySelectorAll('[required]').forEach(field => {
   field.addEventListener('input',   () => field.setCustomValidity(''));
 });
 
-const referralSelect = document.getElementById("how-did-you-hear");
-const referralOther = document.getElementById("how-did-you-hear-other");
+const referralSelect = document.getElementById('how-did-you-hear');
+const referralOther  = document.getElementById('how-did-you-hear-other');
 
-referralOther.addEventListener('invalid', () => referralOther.setCustomValidity(getValidationMessage(referralOther)));
-referralOther.addEventListener('input',   () => referralOther.setCustomValidity(''));
-
-referralSelect.style.color = "#757575";
-
-referralSelect.addEventListener("change", () => {
-  referralSelect.style.color = referralSelect.value ? "var(--text-color)" : "#757575";
-  const isOther = referralSelect.value === "other";
-  referralOther.style.display = isOther ? "block" : "none";
-  referralOther.required = isOther;
+referralSelect.style.color = '#94a3b8';
+referralSelect.addEventListener('change', () => {
+  referralSelect.style.color = referralSelect.value ? 'var(--text)' : '#94a3b8';
+  const isOther = referralSelect.value === 'other';
+  referralOther.style.display = isOther ? 'block' : 'none';
+  referralOther.required      = isOther;
 });
 
-form.addEventListener("submit", handleSubmit);
+var statusTimer = null;
+function showStatus(message, type) {
+  var status = document.getElementById('my-form-status');
+  clearTimeout(statusTimer);
+  status.className = '';
+  status.innerHTML = message;
+  void status.offsetWidth;
+  status.className = 'visible status-' + type;
+  statusTimer = setTimeout(() => {
+    status.classList.remove('visible');
+    setTimeout(() => { status.innerHTML = ''; status.className = ''; }, 500);
+  }, 5000);
+}
+
+async function handleSubmit(event) {
+  event.preventDefault();
+  const data = new FormData(event.target);
+  fetch(event.target.action, {
+    method: form.method,
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  }).then(response => {
+    const s = (i18nData && i18nData[currentLang]) || {};
+    if (response.ok) {
+      showStatus(s['form-success'] || 'Thank you! We will be in touch soon.', 'success');
+      form.reset();
+      referralSelect.style.color = '#94a3b8';
+      referralOther.style.display = 'none';
+      referralOther.required = false;
+    } else {
+      response.json().then(data => {
+        const msg = Object.hasOwn(data, 'errors')
+          ? data.errors.map(e => e.message).join(', ')
+          : (s['form-error'] || 'Something went wrong. Please try again.');
+        showStatus(msg, 'error');
+      });
+    }
+  }).catch(() => {
+    const s = (i18nData && i18nData[currentLang]) || {};
+    showStatus(s['form-error'] || 'Something went wrong. Please try again.', 'error');
+  });
+}
+
+form.addEventListener('submit', handleSubmit);
