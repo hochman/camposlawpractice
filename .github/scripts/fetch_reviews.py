@@ -33,38 +33,8 @@ with urllib.request.urlopen(url) as resp:
     data = json.loads(resp.read())
 
 status = data.get('status')
-print(f'API status: {status}')
 if status != 'OK':
-    print(f'Error: {data.get("error_message", "no details")}')
-
-# Try finding via text search if Place Details fails
-if status != 'OK' or not data.get('result', {}).get('reviews'):
-    print('Trying text search to find correct Place ID...')
-    search_url = (
-        'https://maps.googleapis.com/maps/api/place/findplacefromtext/json'
-        '?input=Campos+Law+Practice+Sunshine+Coast'
-        '&inputtype=textquery'
-        '&fields=place_id,name'
-        f'&key={API_KEY}'
-    )
-    with urllib.request.urlopen(search_url) as resp:
-        search_data = json.loads(resp.read())
-    candidates = search_data.get('candidates', [])
-    print(f'Text search found: {candidates}')
-    if candidates:
-        found_id = candidates[0]['place_id']
-        print(f'Correct Place ID: {found_id}')
-        # Retry with found Place ID
-        url2 = (
-            'https://maps.googleapis.com/maps/api/place/details/json'
-            f'?place_id={found_id}'
-            '&fields=reviews'
-            f'&key={API_KEY}'
-            '&reviews_sort=newest'
-        )
-        with urllib.request.urlopen(url2) as resp:
-            data = json.loads(resp.read())
-        print(f'Retry status: {data.get("status")}')
+    print(f'API error: {status} — {data.get("error_message", "")}')
 
 api_reviews = data.get('result', {}).get('reviews', [])
 print(f'API returned {len(api_reviews)} reviews')
