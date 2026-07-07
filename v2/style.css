@@ -709,7 +709,7 @@ h1, h2, h3, h4 {
 }
 
 .review-card {
-  flex: 0 0 100%;
+  flex: 0 0 auto; /* width set by JS via updateLayout() */
   background: var(--bg);
   border-radius: var(--radius-lg);
   padding: 2rem 2.5rem;
@@ -877,7 +877,13 @@ h1, h2, h3, h4 {
 .carousel-play-pause svg { width: 12px; height: 12px; }
 .carousel-play-pause:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
 
-.carousel-dots { display: flex; gap: 0.5rem; align-items: center; }
+.carousel-counter {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  min-width: 48px;
+  text-align: center;
+}
 
 .carousel-dot {
   width: 8px; height: 8px;

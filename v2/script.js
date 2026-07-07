@@ -209,14 +209,23 @@ function getRelativeDate(dateStr) {
 }
 
 // ===== REVIEWS CAROUSEL =====
-function initReviewsCarousel(reviews) {
+function initReviewsCarousel(allReviews) {
+  // Only 5-star reviews, max 15, newest first
+  const reviews = allReviews
+    .filter(r => r.stars === 5)
+    .sort((a, b) => (b.date || '').localeCompare(a.date || ''))
+    .slice(0, 15);
+
   const track        = document.getElementById('reviews-carousel');
-  const dotsEl       = document.getElementById('carousel-dots');
+  const counterEl    = document.getElementById('carousel-counter');
   const playPauseBtn = document.getElementById('carousel-play-pause');
   const progressBar  = document.getElementById('carousel-progress-bar');
   const iconPause    = playPauseBtn.querySelector('.icon-pause');
   const iconPlay     = playPauseBtn.querySelector('.icon-play');
   let current = 0;
+  let visibleCount = 1;
+  let cardWidth = 0;
+  const GAP = 16;
   let isPlaying = true;
   let autoInterval;
   const cards = [];
@@ -290,13 +299,24 @@ function initReviewsCarousel(reviews) {
         if (needsTruncation) seeMoreBtn.style.display = 'block';
       });
     }
-
-    const dot = document.createElement('button');
-    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
-    dot.setAttribute('aria-label', `Review ${i + 1}`);
-    dot.addEventListener('click', () => goTo(i));
-    dotsEl.appendChild(dot);
   });
+
+  function updateLayout(animate) {
+    const overflow = document.querySelector('.carousel-track-overflow');
+    const containerW = overflow.offsetWidth;
+    visibleCount = window.innerWidth >= 768 ? Math.min(3, reviews.length) : 1;
+    cardWidth = (containerW - GAP * (visibleCount - 1)) / visibleCount;
+    cards.forEach(c => { c.style.width = cardWidth + 'px'; });
+    track.style.gap = GAP + 'px';
+    if (!animate) track.style.transition = 'none';
+    track.style.transform = `translateX(-${current * (cardWidth + GAP)}px)`;
+    if (!animate) requestAnimationFrame(() => { track.style.transition = ''; });
+    updateCounter();
+  }
+
+  function updateCounter() {
+    counterEl.textContent = `${current + 1} / ${reviews.length}`;
+  }
 
   function startProgress() {
     progressBar.classList.remove('animating');
@@ -315,9 +335,11 @@ function initReviewsCarousel(reviews) {
 
   function goTo(index) {
     collapseCard(cards[current]);
-    current = (index + reviews.length) % reviews.length;
-    track.style.transform = `translateX(-${current * 100}%)`;
-    document.querySelectorAll('.carousel-dot').forEach((d, i) => d.classList.toggle('active', i === current));
+    const maxIndex = Math.max(0, reviews.length - visibleCount);
+    current = ((index % reviews.length) + reviews.length) % reviews.length;
+    if (current > maxIndex) current = 0;
+    track.style.transform = `translateX(-${current * (cardWidth + GAP)}px)`;
+    updateCounter();
     if (isPlaying) startProgress();
   }
 
@@ -344,7 +366,11 @@ function initReviewsCarousel(reviews) {
   document.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); pause(); });
   document.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); pause(); });
 
-  play();
+  requestAnimationFrame(() => requestAnimationFrame(() => {
+    updateLayout(false);
+    play();
+  }));
+  window.addEventListener('resize', () => { updateLayout(false); });
 }
 
 fetch('reviews.json')
