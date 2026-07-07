@@ -23,7 +23,7 @@ jobs:
       - name: Fetch and update reviews
         env:
           GOOGLE_PLACES_API_KEY: ${{ secrets.GOOGLE_PLACES_API_KEY }}
-          PLACE_ID: ${{ vars.GOOGLE_PLACE_ID }}
+          PLACE_ID: ChIJVXBUlJUd7SARmy7S6vVu2-0
         run: python .github/scripts/fetch_reviews.py
 
       - name: Commit changes
