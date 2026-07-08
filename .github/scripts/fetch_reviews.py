@@ -15,11 +15,14 @@ from datetime import datetime
 API_KEY  = os.environ['GOOGLE_PLACES_API_KEY']
 PLACE_ID = os.environ['PLACE_ID']
 
-REVIEWS_PATH  = 'v2/reviews.json'
-REVIEWS_IMG   = 'v2/img/reviews'
-MAX_REVIEWS   = 15
+REVIEWS_PATH     = 'v2/reviews.json'
+REVIEWS_PATH_ROOT = 'reviews.json'
+REVIEWS_IMG      = 'v2/img/reviews'
+REVIEWS_IMG_ROOT = 'img/reviews'
+MAX_REVIEWS      = 15
 
 os.makedirs(REVIEWS_IMG, exist_ok=True)
+os.makedirs(REVIEWS_IMG_ROOT, exist_ok=True)
 
 # ── Fetch from Google Places API ──────────────────────────────────────────────
 url = (
@@ -65,13 +68,13 @@ for r in api_reviews:
     if key in existing_keys:
         continue
 
-    # Download profile photo
+    # Download profile photo to both v2 and root
     img_filename = None
     if photo:
         safe = re.sub(r'[^a-z0-9]+', '-', name.lower())[:30].strip('-')
-        local_path = os.path.join(REVIEWS_IMG, f'{safe}.jpg')
         try:
-            urllib.request.urlretrieve(photo, local_path)
+            urllib.request.urlretrieve(photo, os.path.join(REVIEWS_IMG, f'{safe}.jpg'))
+            urllib.request.urlretrieve(photo, os.path.join(REVIEWS_IMG_ROOT, f'{safe}.jpg'))
             img_filename = f'reviews/{safe}.jpg'
         except Exception as e:
             print(f'  Could not download photo for {name}: {e}')
@@ -93,7 +96,8 @@ result = [r for r in existing if r.get('stars') == 5]
 result.sort(key=lambda r: r.get('date') or '', reverse=True)
 result = result[:MAX_REVIEWS]
 
-with open(REVIEWS_PATH, 'w', encoding='utf-8') as f:
-    json.dump(result, f, ensure_ascii=False, indent=2)
+for path in (REVIEWS_PATH, REVIEWS_PATH_ROOT):
+    with open(path, 'w', encoding='utf-8') as f:
+        json.dump(result, f, ensure_ascii=False, indent=2)
 
 print(f'Done: {added} new review(s) added — {len(result)} total in reviews.json')
