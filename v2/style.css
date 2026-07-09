@@ -753,12 +753,8 @@ h1, h2, h3, h4 {
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.review-text.expanded {
-  display: block;
-  -webkit-line-clamp: unset;
-}
 
-.see-more-btn, .see-less-btn {
+.see-more-btn {
   background: none;
   border: none;
   color: var(--accent);
@@ -875,8 +871,87 @@ h1, h2, h3, h4 {
   font-size: 0.85rem;
   font-weight: 600;
   color: var(--text-muted);
-  min-width: 48px;
+  min-width: 80px;
   text-align: center;
+}
+
+/* ===== REVIEW MODAL ===== */
+.review-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 27, 51, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.review-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.review-modal-card {
+  background: var(--bg);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  position: relative;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.review-modal-overlay.open .review-modal-card {
+  transform: translateY(0) scale(1);
+}
+.review-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-muted);
+  flex-shrink: 0;
+  transition: all var(--ease);
+}
+.review-modal-close:hover { background: var(--primary); color: #fff; border-color: var(--primary); }
+.review-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-right: 2.5rem;
+}
+.review-modal-body { margin-bottom: 1.25rem; }
+.review-modal-text {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: var(--text-muted);
+}
+@media (max-width: 600px) {
+  .review-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .review-modal-card {
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    max-height: 88vh;
+    padding: 1.5rem 1.25rem 2rem;
+  }
 }
 
 .carousel-dot {

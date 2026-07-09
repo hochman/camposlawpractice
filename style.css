@@ -579,8 +579,88 @@ section[id] {
   font-size: 0.85rem;
   font-weight: 600;
   color: #888;
-  min-width: 48px;
+  min-width: 80px;
   text-align: center;
+}
+
+/* ===== REVIEW MODAL ===== */
+.review-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(12, 27, 51, 0.55);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+.review-modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+.review-modal-card {
+  background: #fff;
+  border-radius: 14px;
+  width: 100%;
+  max-width: 640px;
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 2rem 2.5rem;
+  position: relative;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+  transform: translateY(20px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.review-modal-overlay.open .review-modal-card {
+  transform: translateY(0) scale(1);
+}
+.review-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #e2e8f0;
+  background: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #64748b;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+}
+.review-modal-close:hover { background: var(--primary-color); color: #fff; border-color: var(--primary-color); }
+.review-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  padding-right: 2.5rem;
+}
+.review-modal-body { margin-bottom: 1.25rem; }
+.review-modal-text {
+  font-size: 0.97rem;
+  line-height: 1.85;
+  color: #555;
+  font-style: italic;
+}
+@media (max-width: 600px) {
+  .review-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+  .review-modal-card {
+    border-radius: 14px 14px 0 0;
+    max-height: 88vh;
+    padding: 1.5rem 1.25rem 2rem;
+  }
 }
 
 /* ===== REVIEW CARD ===== */

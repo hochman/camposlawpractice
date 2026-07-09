@@ -176,9 +176,6 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.see-more-btn').forEach(btn => {
           btn.textContent = data[lang]['see-more'];
         });
-        document.querySelectorAll('.see-less-btn').forEach(btn => {
-          btn.textContent = data[lang]['see-less'];
-        });
 
         // re-set FAQ open heights after text reflow
         document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(btn => {
@@ -227,28 +224,83 @@ function initReviewsCarousel(allReviews) {
   const GAP        = 16;
   let isPlaying    = true;
   let autoInterval;
-  let expandedIndex = null;
-  const cards = [];
+  const cards      = [];
 
   const googleSVG = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>`;
 
-  reviews.forEach((review, i) => {
-    const stars   = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
-    const hasText = review.review && review.review.trim().length > 0;
-    const imgSrc  = review.image ? `img/${review.image}` : null;
+  // ── Modal ─────────────────────────────────────────────────────────────────────
+  let modal = null;
 
+  function buildModal() {
+    const el = document.createElement('div');
+    el.className = 'review-modal-overlay';
+    el.setAttribute('role', 'dialog');
+    el.setAttribute('aria-modal', 'true');
+    el.innerHTML = `
+      <div class="review-modal-card">
+        <button class="review-modal-close" aria-label="Close">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+        <div class="review-modal-header">
+          <a class="google-badge review-modal-badge" href="#" target="_blank" rel="noopener noreferrer">${googleSVG}<span>Google Review</span></a>
+          <div class="stars review-modal-stars"></div>
+        </div>
+        <div class="review-modal-body">
+          <div class="review-modal-text"></div>
+        </div>
+        <div class="review-divider"></div>
+        <div class="review-footer">
+          <div class="review-author-info">
+            <div class="review-modal-avatar"></div>
+            <span class="review-modal-name review-name"></span>
+          </div>
+          <span class="review-modal-date review-date"></span>
+        </div>
+      </div>`;
+    document.body.appendChild(el);
+    el.querySelector('.review-modal-close').addEventListener('click', closeModal);
+    el.addEventListener('click', e => { if (e.target === el) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    return el;
+  }
+
+  function openModal(i) {
+    if (!modal) modal = buildModal();
+    const r      = reviews[i];
+    const imgSrc = r.image ? `img/${r.image}` : null;
+    modal.querySelector('.review-modal-badge').href = r.link || '#';
+    modal.querySelector('.review-modal-stars').textContent = '★'.repeat(r.stars) + '☆'.repeat(5 - r.stars);
+    modal.querySelector('.review-modal-text').innerHTML = '"' + r.review.replace(/\n/g, '<br>') + '"';
+    modal.querySelector('.review-modal-name').textContent = r.name;
+    const dateEl = modal.querySelector('.review-modal-date');
+    dateEl.textContent = getRelativeDate(r.date);
+    dateEl.dataset.date = r.date;
+    modal.querySelector('.review-modal-avatar').innerHTML = imgSrc
+      ? `<img class="review-avatar" src="${imgSrc}" alt="${r.name}" onerror="this.onerror=null;this.style.display='none';">`
+      : `<div class="review-avatar review-avatar-fallback">${r.name.charAt(0)}</div>`;
+    modal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    pause();
+  }
+
+  function closeModal() {
+    if (modal) modal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  // ── Cards ─────────────────────────────────────────────────────────────────────
+  reviews.forEach((review, i) => {
+    const stars      = '★'.repeat(review.stars) + '☆'.repeat(5 - review.stars);
+    const hasText    = review.review && review.review.trim().length > 0;
+    const imgSrc     = review.image ? `img/${review.image}` : null;
     const avatarHTML = imgSrc
       ? `<img class="review-avatar" src="${imgSrc}" alt="${review.name}" onerror="this.onerror=null;this.style.display='none';">`
       : `<div class="review-avatar review-avatar-fallback">${review.name.charAt(0)}</div>`;
-
     const seeMoreLabel = (i18nData && i18nData[currentLang] && i18nData[currentLang]['see-more']) || 'See more';
-    const seeLessLabel = (i18nData && i18nData[currentLang] && i18nData[currentLang]['see-less']) || 'See less';
-
     const textHTML = hasText ? `
       <div class="review-text-wrapper">
         <div class="review-text">"${review.review.replace(/\n/g, '<br>')}"</div>
         <button class="see-more-btn" style="display:none">${seeMoreLabel}</button>
-        <button class="see-less-btn" style="display:none">${seeLessLabel}</button>
       </div>` : '';
 
     const card = document.createElement('div');
@@ -267,81 +319,23 @@ function initReviewsCarousel(allReviews) {
         </div>
         <span class="review-date" data-date="${review.date}">${getRelativeDate(review.date)}</span>
       </div>`;
-
     track.appendChild(card);
     cards.push(card);
 
     if (hasText) {
-      card.querySelector('.see-more-btn').addEventListener('click', () => expandCard(i));
-      card.querySelector('.see-less-btn').addEventListener('click', collapseExpanded);
+      card.querySelector('.see-more-btn').addEventListener('click', () => openModal(i));
     }
   });
 
+  // ── Helpers ───────────────────────────────────────────────────────────────────
   function checkCardTruncation(card) {
     const textEl     = card.querySelector('.review-text');
     const seeMoreBtn = card.querySelector('.see-more-btn');
     if (!textEl || !seeMoreBtn) return;
-    if (cards.indexOf(card) === expandedIndex) return;
-    const truncated = textEl.scrollHeight > textEl.clientHeight + 4;
-    card.dataset.needsTruncation = String(truncated);
-    seeMoreBtn.style.display = truncated ? 'block' : 'none';
-  }
-
-  function expandCard(i) {
-    if (expandedIndex !== null && expandedIndex !== i) collapseExpanded();
-    if (expandedIndex === i) return;
-    expandedIndex = i;
-    pause();
-
-    const card       = cards[i];
-    const overflow   = document.querySelector('.carousel-track-overflow');
-    const containerW = overflow.offsetWidth;
-    const textEl     = card.querySelector('.review-text');
-    const seeMoreBtn = card.querySelector('.see-more-btn');
-    const seeLessBtn = card.querySelector('.see-less-btn');
-
-    if (visibleCount > 1) card.style.width = containerW + 'px';
-    if (textEl) textEl.classList.add('expanded');
-    if (seeMoreBtn) seeMoreBtn.style.display = 'none';
-    if (seeLessBtn) seeLessBtn.style.display = 'block';
-
-    current = i;
-    track.style.transform = `translateX(-${i * (cardWidth + GAP)}px)`;
-    updateCounter();
-  }
-
-  function collapseExpanded() {
-    if (expandedIndex === null) return;
-    const i    = expandedIndex;
-    const card = cards[i];
-    expandedIndex = null;
-
-    const textEl     = card.querySelector('.review-text');
-    const seeMoreBtn = card.querySelector('.see-more-btn');
-    const seeLessBtn = card.querySelector('.see-less-btn');
-
-    card.style.width = cardWidth + 'px';
-    if (textEl) textEl.classList.remove('expanded');
-    if (seeLessBtn) seeLessBtn.style.display = 'none';
-    if (seeMoreBtn && card.dataset.needsTruncation === 'true') seeMoreBtn.style.display = 'block';
-
-    const maxIndex = Math.max(0, reviews.length - visibleCount);
-    current = Math.min(i, maxIndex);
-    track.style.transform = `translateX(-${current * (cardWidth + GAP)}px)`;
-    updateCounter();
+    seeMoreBtn.style.display = textEl.scrollHeight > textEl.clientHeight + 4 ? 'block' : 'none';
   }
 
   function updateLayout(animate) {
-    if (expandedIndex !== null) {
-      const card = cards[expandedIndex];
-      const textEl  = card.querySelector('.review-text');
-      const seeLess = card.querySelector('.see-less-btn');
-      if (textEl) textEl.classList.remove('expanded');
-      if (seeLess) seeLess.style.display = 'none';
-      card.style.width = '';
-      expandedIndex = null;
-    }
-
     const overflow   = document.querySelector('.carousel-track-overflow');
     const containerW = overflow.offsetWidth;
     visibleCount = window.innerWidth >= 768 ? Math.min(3, reviews.length) : 1;
@@ -350,13 +344,18 @@ function initReviewsCarousel(allReviews) {
     track.style.gap = GAP + 'px';
     if (!animate) track.style.transition = 'none';
     track.style.transform = `translateX(-${current * (cardWidth + GAP)}px)`;
-    if (!animate) requestAnimationFrame(() => { track.style.transition = ''; });
+    if (!animate) setTimeout(() => { track.style.transition = ''; }, 0);
     updateCounter();
-    requestAnimationFrame(() => { cards.forEach(c => checkCardTruncation(c)); });
+    setTimeout(() => { cards.forEach(c => checkCardTruncation(c)); }, 0);
   }
 
   function updateCounter() {
-    counterEl.textContent = `${current + 1} / ${reviews.length}`;
+    if (visibleCount > 1) {
+      const last = Math.min(current + visibleCount, reviews.length);
+      counterEl.textContent = `${current + 1}–${last} / ${reviews.length}`;
+    } else {
+      counterEl.textContent = `${current + 1} / ${reviews.length}`;
+    }
   }
 
   function startProgress() {
@@ -366,7 +365,7 @@ function initReviewsCarousel(allReviews) {
   }
 
   function goTo(index) {
-    collapseExpanded();
+    closeModal();
     const maxIndex = Math.max(0, reviews.length - visibleCount);
     current = ((index % reviews.length) + reviews.length) % reviews.length;
     if (current > maxIndex) current = 0;
@@ -398,10 +397,7 @@ function initReviewsCarousel(allReviews) {
   document.querySelector('.carousel-prev').addEventListener('click', () => { goTo(current - 1); pause(); });
   document.querySelector('.carousel-next').addEventListener('click', () => { goTo(current + 1); pause(); });
 
-  requestAnimationFrame(() => requestAnimationFrame(() => {
-    updateLayout(false);
-    play();
-  }));
+  setTimeout(() => { updateLayout(false); play(); }, 0);
   window.addEventListener('resize', () => { updateLayout(false); });
 }
 
