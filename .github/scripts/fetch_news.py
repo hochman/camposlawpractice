@@ -87,16 +87,16 @@ def filter_and_annotate(items):
         for i, item in enumerate(items)
     )
 
-    prompt = f"""You are an expert in Australian immigration law, working for Campos Law Practice — a migration law firm on the Sunshine Coast, QLD, Australia.
+    prompt = f"""You are an expert in Australian immigration law.
 
 Below are {len(items)} recent news headlines. Your task:
 
-1. Select up to {MAX_FINAL} headlines that are genuinely relevant to Australian immigration: visa policy, processing times, fee changes, new visa subclasses, law changes, visa cancellations, international students, skilled migration, partner visas, citizenship, or anything that could impact people seeking Australian visas.
+1. Select up to {MAX_FINAL} headlines that are DIRECTLY about Australian immigration. Include only items that clearly involve: Australian visa policy, processing times, fee changes, new or cancelled visa subclasses, Australian migration law changes, skilled migration to Australia, partner visas, Australian citizenship, or decisions by the Australian Department of Home Affairs. EXCLUDE: news about other countries' immigration systems, generic world news that only tangentially mentions Australia, or articles where Australia appears only as a passing reference.
 
 2. For each selected item write a 2–3 sentence commentary in English that:
    - Explains what the news means in plain language
-   - Highlights the impact for people with or seeking Australian visas
-   - Is professional, clear, and avoids legal advice language
+   - Highlights the practical impact for people with or seeking Australian visas
+   - Is factual and professional — do NOT mention specific locations, law firms, or give legal advice
 
 3. Assign one category: "Visas", "Law & Policy", "Work Visas", "Student Visas", "Permanent Residency", or "General"
 
