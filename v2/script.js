@@ -405,6 +405,41 @@ fetch('reviews.json')
   .then(res => res.json())
   .then(reviews => initReviewsCarousel(reviews));
 
+// ===== NEWS CTA (main page preview) =====
+const NEWS_CAT_COLORS = {
+  'Visas':               '#1a6cf5',
+  'Law & Policy':        '#7c3aed',
+  'Work Visas':          '#059669',
+  'Student Visas':       '#d97706',
+  'Permanent Residency': '#b45309',
+  'General':             '#64748b',
+};
+
+(function loadNewsCta() {
+  const grid  = document.getElementById('news-cta-grid');
+  const empty = document.getElementById('news-cta-empty');
+  if (!grid) return;
+
+  fetch('news.json')
+    .then(r => r.json())
+    .then(data => {
+      const items = (data.items || []).slice(0, 3);
+      if (items.length === 0) { empty.style.display = 'block'; return; }
+      items.forEach(item => {
+        const color = NEWS_CAT_COLORS[item.category] || '#64748b';
+        const card  = document.createElement('a');
+        card.className = 'news-cta-card';
+        card.href = 'news.html';
+        card.innerHTML = `
+          <span class="news-cat-badge" style="--cat-color:${color}">${item.category}</span>
+          <span class="news-cta-card-title">${item.title}</span>
+          <span class="news-cta-card-source">${item.source}</span>`;
+        grid.appendChild(card);
+      });
+    })
+    .catch(() => { empty.style.display = 'block'; });
+})();
+
 // ===== CONTACT FORM =====
 var form = document.getElementById('contact-form');
 
