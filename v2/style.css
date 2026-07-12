@@ -1336,6 +1336,8 @@ h1, h2, h3, h4 {
 }
 
 @media (max-width: 768px) {
+  .hero { min-height: 0; padding: 3.5rem 1.25rem 4rem; justify-content: flex-start; }
+
   .hamburger-btn { display: flex; }
   .qls-nav-img { display: none; }
   .qls-topbar-link { display: flex; align-items: center; }
