@@ -1560,19 +1560,26 @@ h1, h2, h3, h4 {
   .news-filters-wrap { padding: 0.5rem 1rem; top: 60px; }
   .news-main { padding: 1.5rem 1rem 4rem; }
   .news-grid { grid-template-columns: 1fr; }
+  .section-header { margin-bottom: 2rem; }
+
+  /* Vertical list layout for news CTA cards */
   .news-cta-grid {
-    display: flex; flex-direction: row;
-    overflow-x: auto; scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    gap: 0.85rem; padding-bottom: 0.75rem;
-    margin-left: -1.25rem; margin-right: -1.25rem;
-    padding-left: 1.25rem; padding-right: 1.25rem;
-    scrollbar-width: none;
+    display: flex; flex-direction: column;
+    gap: 0; margin-bottom: 1.5rem;
+    overflow: visible; scroll-snap-type: none;
+    margin-left: 0; margin-right: 0;
+    padding: 0;
   }
-  .news-cta-grid::-webkit-scrollbar { display: none; }
   .news-cta-grid .news-cta-card {
-    flex: 0 0 78vw; max-width: 300px;
-    scroll-snap-align: start; display: flex;
+    flex: none; max-width: none; width: 100%;
+    background: transparent; border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0; padding: 0.9rem 0;
+    flex-direction: column; gap: 0.3rem;
+    scroll-snap-align: none;
   }
+  .news-cta-grid .news-cta-card:first-child { border-top: 1px solid var(--border); }
+  .news-cta-grid .news-cta-card:hover { transform: none; box-shadow: none; }
+  .news-cta-card-title { -webkit-line-clamp: 3; }
 }
 }
