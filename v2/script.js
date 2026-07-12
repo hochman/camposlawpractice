@@ -429,7 +429,9 @@ const NEWS_CAT_COLORS = {
         const color = NEWS_CAT_COLORS[item.category] || '#64748b';
         const card  = document.createElement('a');
         card.className = 'news-cta-card';
-        card.href = 'news.html';
+        card.href = item.link;
+        card.target = '_blank';
+        card.rel = 'noopener noreferrer';
         const summary = item.commentary ? `<span class="news-cta-card-summary">${item.commentary}</span>` : '';
         card.innerHTML = `
           <span class="news-cat-badge" style="--cat-color:${color}">${item.category}</span>
