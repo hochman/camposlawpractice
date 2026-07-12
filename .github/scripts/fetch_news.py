@@ -7,15 +7,17 @@ import xml.etree.ElementTree as ET
 import anthropic
 
 QUERIES = [
+    "immigration australia visa site:abc.net.au OR site:smh.com.au OR site:theguardian.com OR site:sbs.com.au",
+    "australian visa changes 2026 site:abc.net.au OR site:smh.com.au OR site:theguardian.com OR site:sbs.com.au",
+    "home affairs australia migration visa policy",
+    "skilled visa australia subclass 2026",
     "immigration australia visa",
     "australian visa changes 2026",
-    "home affairs australia migration",
-    "skilled visa australia subclass",
 ]
 
 NEWS_PATH      = 'news.json'
 NEWS_PATH_V2   = 'v2/news.json'
-MAX_CANDIDATES = 60   # items sent to Claude for filtering
+MAX_CANDIDATES = 80   # items sent to Claude for filtering
 MAX_FINAL      = 15   # items kept in the final JSON
 DAYS_LOOKBACK  = 30   # ignore articles older than this
 
@@ -92,6 +94,8 @@ def filter_and_annotate(items):
 Below are {len(items)} recent news headlines. Your task:
 
 1. Select up to {MAX_FINAL} headlines that are DIRECTLY about Australian immigration. Include only items that clearly involve: Australian visa policy, processing times, fee changes, new or cancelled visa subclasses, Australian migration law changes, skilled migration to Australia, partner visas, Australian citizenship, or decisions by the Australian Department of Home Affairs. EXCLUDE: news about other countries' immigration systems, generic world news that only tangentially mentions Australia, or articles where Australia appears only as a passing reference.
+
+   SOURCE PREFERENCE: Strongly prefer articles from reputable Australian outlets such as ABC News (abc.net.au), The Sydney Morning Herald (smh.com.au), The Guardian Australia (theguardian.com), SBS News (sbs.com.au), The Age, or The Australian. If two articles cover the same topic, select the one from the more reputable Australian source.
 
 2. For each selected item write a 2–3 sentence commentary in English that:
    - Explains what the news means in plain language
