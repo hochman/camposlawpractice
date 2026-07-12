@@ -430,10 +430,12 @@ const NEWS_CAT_COLORS = {
         const card  = document.createElement('a');
         card.className = 'news-cta-card';
         card.href = 'news.html';
+        const summary = item.commentary ? `<span class="news-cta-card-summary">${item.commentary}</span>` : '';
         card.innerHTML = `
           <span class="news-cat-badge" style="--cat-color:${color}">${item.category}</span>
           <span class="news-cta-card-title">${item.title}</span>
-          <span class="news-cta-card-source">${item.source}</span>`;
+          <span class="news-cta-card-source">${item.source}</span>
+          ${summary}`;
         grid.appendChild(card);
       });
     })

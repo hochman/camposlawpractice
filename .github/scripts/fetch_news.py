@@ -21,6 +21,25 @@ MAX_CANDIDATES = 80   # items sent to Claude for filtering
 MAX_FINAL      = 15   # items kept in the final JSON
 DAYS_LOOKBACK  = 30   # ignore articles older than this
 
+# Sources blocked regardless of content — non-Australian publications
+BLOCKED_SOURCES = frozenset([
+    'vietnam investment review', 'vir',
+    'indian express', 'business standard',
+    'times of india', 'hindustan times', 'ndtv',
+    'india today', 'moneycontrol', 'financial express',
+    'the hans india', 'livemint', 'economic times',
+    'fragomen',          # immigration consultancy, not journalism
+    'daily sabah',       # Turkish
+    'manila bulletin', 'philippine daily',
+    'the nation thailand',
+    'gulf news', 'khaleej times',
+])
+
+
+def is_blocked_source(source_name: str) -> bool:
+    name = source_name.lower()
+    return any(blocked in name for blocked in BLOCKED_SOURCES)
+
 
 def fetch_rss(query):
     encoded = urllib.parse.quote(query)
@@ -37,10 +56,17 @@ def parse_rss(xml_bytes):
     channel = root.find('channel')
     items = []
     for item in channel.findall('item'):
-        title   = item.findtext('title', '').strip()
-        link    = item.findtext('link', '').strip()
-        pub     = item.findtext('pubDate', '').strip()
-        source  = item.findtext('source', '').strip()
+        title = item.findtext('title', '').strip()
+        link  = item.findtext('link', '').strip()
+        pub   = item.findtext('pubDate', '').strip()
+
+        source_elem = item.find('source')
+        if source_elem is not None:
+            source     = (source_elem.text or '').strip()
+            source_url = source_elem.get('url', '')
+        else:
+            source     = ''
+            source_url = ''
 
         try:
             dt = datetime.datetime.strptime(pub, '%a, %d %b %Y %H:%M:%S %Z')
@@ -49,10 +75,11 @@ def parse_rss(xml_bytes):
             date_iso = ''
 
         items.append({
-            'title':  title,
-            'link':   link,
-            'date':   date_iso,
-            'source': source,
+            'title':      title,
+            'link':       link,
+            'date':       date_iso,
+            'source':     source,
+            'source_url': source_url,
         })
     return items
 
@@ -89,18 +116,26 @@ def filter_and_annotate(items):
         for i, item in enumerate(items)
     )
 
-    prompt = f"""You are an expert in Australian immigration law.
+    prompt = f"""You are a factual news editor specialising in Australian immigration.
 
 Below are {len(items)} recent news headlines. Your task:
 
-1. Select up to {MAX_FINAL} headlines that are DIRECTLY about Australian immigration. Include only items that clearly involve: Australian visa policy, processing times, fee changes, new or cancelled visa subclasses, Australian migration law changes, skilled migration to Australia, partner visas, Australian citizenship, or decisions by the Australian Department of Home Affairs. EXCLUDE: news about other countries' immigration systems, generic world news that only tangentially mentions Australia, or articles where Australia appears only as a passing reference.
+1. Select up to {MAX_FINAL} headlines that are DIRECTLY about Australian immigration. Include only items that clearly involve: Australian visa policy, processing times, fee changes, new or cancelled visa subclasses, Australian migration law changes, skilled migration to Australia, partner visas, Australian citizenship, or decisions by the Australian Department of Home Affairs.
 
-   SOURCE PREFERENCE: Strongly prefer articles from reputable Australian outlets such as ABC News (abc.net.au), The Sydney Morning Herald (smh.com.au), The Guardian Australia (theguardian.com), SBS News (sbs.com.au), The Age, or The Australian. If two articles cover the same topic, select the one from the more reputable Australian source.
+   EXCLUDE:
+   - News about other countries' immigration systems (e.g. Vietnam, India, US, UK, Canada)
+   - Generic world news that only tangentially mentions Australia
+   - Articles from non-Australian publications where Australia is not the primary focus
+   - Press releases or content from immigration consultancy firms (e.g. Fragomen)
 
-2. For each selected item write a 2–3 sentence commentary in English that:
-   - Explains what the news means in plain language
-   - Highlights the practical impact for people with or seeking Australian visas
-   - Is factual and professional — do NOT mention specific locations, law firms, or give legal advice
+   SOURCE PREFERENCE: Strongly prefer articles from reputable Australian outlets — ABC News, The Sydney Morning Herald, The Guardian Australia, SBS News, The Age, The Australian, News.com.au, AFR. If two articles cover the same topic, select the one from the more credible Australian source.
+
+2. For each selected item write a 2-sentence factual summary in English that:
+   - States what happened or what changed, in plain language
+   - Explains the practical impact for people with or seeking Australian visas
+   - Is completely neutral — do NOT frame it as commentary from any law firm, adviser, or organisation
+   - Does NOT mention specific cities, firm names, or give legal advice
+   - Is concise enough to display in full without truncation (aim for ~60 words max)
 
 3. Assign one category: "Visas", "Law & Policy", "Work Visas", "Student Visas", "Permanent Residency", or "General"
 
@@ -109,7 +144,7 @@ Headlines:
 
 Respond ONLY with a valid JSON array — no markdown, no extra text:
 [
-  {{"index": <1-based>, "category": "<category>", "commentary": "<text>"}},
+  {{"index": <1-based>, "category": "<category>", "commentary": "<2-sentence summary>"}},
   ...
 ]"""
 
@@ -133,6 +168,7 @@ Respond ONLY with a valid JSON array — no markdown, no extra text:
         idx = int(sel["index"]) - 1
         if 0 <= idx < len(items):
             entry = items[idx].copy()
+            entry.pop('source_url', None)   # don't expose internal field
             entry["category"]   = sel["category"]
             entry["commentary"] = sel["commentary"]
             result.append(entry)
@@ -155,9 +191,14 @@ if __name__ == "__main__":
 
     unique = deduplicate(all_items)
     recent = [i for i in unique if is_recent(i["date"])]
-    recent.sort(key=lambda x: x["date"], reverse=True)
-    candidates = recent[:MAX_CANDIDATES]
-    print(f"\nCandidates: {len(candidates)} unique recent items")
+
+    # Remove blocked non-Australian sources before sending to Claude
+    filtered = [i for i in recent if not is_blocked_source(i.get('source', ''))]
+    print(f"\nAfter source filter: {len(filtered)} / {len(recent)} items kept")
+
+    filtered.sort(key=lambda x: x["date"], reverse=True)
+    candidates = filtered[:MAX_CANDIDATES]
+    print(f"Candidates: {len(candidates)} unique recent items")
 
     print("Filtering and annotating with Claude...")
     annotated = filter_and_annotate(candidates)
