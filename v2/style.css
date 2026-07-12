@@ -1560,7 +1560,7 @@ h1, h2, h3, h4 {
   .news-filters-wrap { padding: 0.5rem 1rem; top: 60px; }
   .news-main { padding: 1.5rem 1rem 4rem; }
   .news-grid { grid-template-columns: 1fr; }
-  .section-header { margin-bottom: 2rem; }
+  #news-cta .section-header { margin-bottom: 1.5rem; }
 
   /* Vertical list layout for news CTA cards */
   .news-cta-grid {
