@@ -192,14 +192,13 @@
       });
       enBtn.classList.toggle('active', lang === 'en');
       ptBtn.classList.toggle('active', lang === 'pt');
-      // Re-render filter buttons text (they use data-key already handled above)
-      // Re-render date labels
       document.querySelectorAll('.news-card-date[data-date]').forEach(el => {
         el.textContent = formatDate(el.dataset.date, lang);
       });
-      // Updated label
+      document.querySelectorAll('[data-commentary-en]').forEach(el => {
+        el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
+      });
       renderUpdatedLabel();
-      // Reapply filter button active state label if needed
     }
 
     // ── Date formatting ───────────────────────────────────────────────────────
@@ -280,7 +279,7 @@
             <p class="news-card-source">${escHtml(item.source)}</p>
             <div class="news-card-divider"></div>
             <div class="news-card-commentary">
-              <p>${escHtml(item.commentary)}</p>
+              <p data-commentary-en="${escHtml(item.commentary)}" data-commentary-pt="${escHtml(item.commentary_pt || item.commentary)}">${escHtml(currentLang === 'pt' && item.commentary_pt ? item.commentary_pt : item.commentary)}</p>
             </div>
             <a class="news-card-link" href="${escHtml(item.link)}" target="_blank" rel="noopener noreferrer">
               <span data-key="news-read-more">Read original article</span>

@@ -181,6 +181,11 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(btn => {
           btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
         });
+
+        // swap news CTA summaries
+        document.querySelectorAll('[data-commentary-en]').forEach(el => {
+          el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
+        });
       };
 
       setLanguage('en');
@@ -432,7 +437,9 @@ const NEWS_CAT_COLORS = {
         card.href = item.link;
         card.target = '_blank';
         card.rel = 'noopener noreferrer';
-        const summary = item.commentary ? `<span class="news-cta-card-summary">${item.commentary}</span>` : '';
+        const summaryEn = item.commentary || '';
+        const summaryPt = item.commentary_pt || summaryEn;
+        const summary = summaryEn ? `<span class="news-cta-card-summary" data-commentary-en="${summaryEn.replace(/"/g,'&quot;')}" data-commentary-pt="${summaryPt.replace(/"/g,'&quot;')}">${currentLang === 'pt' ? summaryPt : summaryEn}</span>` : '';
         card.innerHTML = `
           <span class="news-cat-badge" style="--cat-color:${color}">${item.category}</span>
           <span class="news-cta-card-title">${item.title}</span>

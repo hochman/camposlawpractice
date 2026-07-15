@@ -130,12 +130,13 @@ Below are {len(items)} recent news headlines. Your task:
 
    SOURCE PREFERENCE: Strongly prefer articles from reputable Australian outlets — ABC News, The Sydney Morning Herald, The Guardian Australia, SBS News, The Age, The Australian, News.com.au, AFR. If two articles cover the same topic, select the one from the more credible Australian source.
 
-2. For each selected item write a 2-sentence factual summary in English that:
+2. For each selected item write a 2-sentence factual summary in BOTH English and Brazilian Portuguese (pt-BR) that:
    - States what happened or what changed, in plain language
    - Explains the practical impact for people with or seeking Australian visas
    - Is completely neutral — do NOT frame it as commentary from any law firm, adviser, or organisation
    - Does NOT mention specific cities, firm names, or give legal advice
-   - Is concise enough to display in full without truncation (aim for ~60 words max)
+   - Is concise enough to display in full without truncation (aim for ~60 words per language)
+   - The Portuguese version must be a natural translation — not word-for-word, but clear and idiomatic pt-BR
 
 3. Assign one category: "Visas", "Law & Policy", "Work Visas", "Student Visas", "Permanent Residency", or "General"
 
@@ -144,7 +145,7 @@ Headlines:
 
 Respond ONLY with a valid JSON array — no markdown, no extra text:
 [
-  {{"index": <1-based>, "category": "<category>", "commentary": "<2-sentence summary>"}},
+  {{"index": <1-based>, "category": "<category>", "commentary": "<English summary>", "commentary_pt": "<Portuguese summary>"}},
   ...
 ]"""
 
@@ -169,8 +170,9 @@ Respond ONLY with a valid JSON array — no markdown, no extra text:
         if 0 <= idx < len(items):
             entry = items[idx].copy()
             entry.pop('source_url', None)   # don't expose internal field
-            entry["category"]   = sel["category"]
-            entry["commentary"] = sel["commentary"]
+            entry["category"]    = sel["category"]
+            entry["commentary"]    = sel["commentary"]
+            entry["commentary_pt"] = sel.get("commentary_pt", "")
             result.append(entry)
 
     return result
