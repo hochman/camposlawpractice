@@ -1,6 +1,33 @@
 let currentLang = 'en';
 let i18nData = null;
 
+// Apply language immediately — script is defer'd so DOM is already parsed.
+// This runs before DOMContentLoaded, eliminating any blank/flash period.
+(function applyLangEarly() {
+  const data = window.__i18n;
+  if (!data) { document.documentElement.style.opacity = ''; return; }
+  i18nData = data;
+  const lang = localStorage.getItem('lang') || 'en';
+  currentLang = lang;
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.getAttribute('data-key');
+    if (data[lang][key] !== undefined) el.textContent = data[lang][key];
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (data[lang][key]) el.placeholder = data[lang][key];
+  });
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (data[lang][key]) el.textContent = data[lang][key];
+  });
+  const enBtn = document.getElementById('en-btn');
+  const ptBtn = document.getElementById('pt-btn');
+  if (enBtn) enBtn.classList.toggle('active', lang === 'en');
+  if (ptBtn) ptBtn.classList.toggle('active', lang === 'pt');
+  document.documentElement.style.opacity = '';
+})();
+
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
 
