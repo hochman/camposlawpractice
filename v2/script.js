@@ -143,59 +143,59 @@ document.addEventListener("DOMContentLoaded", () => {
   const enBtn = document.getElementById('en-btn');
   const ptBtn = document.getElementById('pt-btn');
 
-  fetch('languages.json')
-    .then(res => res.json())
-    .then(data => {
-      i18nData = data;
-      const keyEls         = document.querySelectorAll('[data-key]');
-      const placeholderEls = document.querySelectorAll('[data-i18n-placeholder]');
-      const i18nEls        = document.querySelectorAll('[data-i18n]');
+  const data = window.__i18n;
+  if (data) {
+    i18nData = data;
+    const keyEls         = document.querySelectorAll('[data-key]');
+    const placeholderEls = document.querySelectorAll('[data-i18n-placeholder]');
+    const i18nEls        = document.querySelectorAll('[data-i18n]');
 
-      const setLanguage = (lang) => {
-        currentLang = lang;
-        localStorage.setItem('lang', lang);
+    const setLanguage = (lang) => {
+      currentLang = lang;
+      localStorage.setItem('lang', lang);
 
-        keyEls.forEach(el => {
-          const key = el.getAttribute('data-key');
-          if (data[lang][key] !== undefined) el.textContent = data[lang][key];
-        });
-        placeholderEls.forEach(el => {
-          const key = el.getAttribute('data-i18n-placeholder');
-          if (data[lang][key]) el.placeholder = data[lang][key];
-        });
-        i18nEls.forEach(el => {
-          const key = el.getAttribute('data-i18n');
-          if (data[lang][key]) el.textContent = data[lang][key];
-        });
+      keyEls.forEach(el => {
+        const key = el.getAttribute('data-key');
+        if (data[lang][key] !== undefined) el.textContent = data[lang][key];
+      });
+      placeholderEls.forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (data[lang][key]) el.placeholder = data[lang][key];
+      });
+      i18nEls.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (data[lang][key]) el.textContent = data[lang][key];
+      });
 
-        enBtn.classList.toggle('active', lang === 'en');
-        ptBtn.classList.toggle('active', lang === 'pt');
+      enBtn.classList.toggle('active', lang === 'en');
+      ptBtn.classList.toggle('active', lang === 'pt');
 
-        document.querySelectorAll('.review-date[data-date]').forEach(el => {
-          el.textContent = getRelativeDate(el.dataset.date);
-        });
-        document.querySelectorAll('.see-more-btn').forEach(btn => {
-          btn.textContent = data[lang]['see-more'];
-        });
+      document.querySelectorAll('.review-date[data-date]').forEach(el => {
+        el.textContent = getRelativeDate(el.dataset.date);
+      });
+      document.querySelectorAll('.see-more-btn').forEach(btn => {
+        btn.textContent = data[lang]['see-more'];
+      });
 
-        // re-set FAQ open heights after text reflow
-        document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(btn => {
-          btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
-        });
+      // re-set FAQ open heights after text reflow
+      document.querySelectorAll('.faq-q[aria-expanded="true"]').forEach(btn => {
+        btn.nextElementSibling.style.maxHeight = btn.nextElementSibling.scrollHeight + 'px';
+      });
 
-        // swap news CTA summaries
-        document.querySelectorAll('[data-commentary-en]').forEach(el => {
-          el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
-        });
+      // swap news CTA summaries
+      document.querySelectorAll('[data-commentary-en]').forEach(el => {
+        el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
+      });
 
-        document.documentElement.style.transition = 'opacity 0.12s';
-        document.documentElement.style.opacity = '';
-      };
+      document.documentElement.style.opacity = '';
+    };
 
-      setLanguage(localStorage.getItem('lang') || 'en');
-      enBtn.addEventListener('click', () => setLanguage('en'));
-      ptBtn.addEventListener('click', () => setLanguage('pt'));
-    });
+    setLanguage(localStorage.getItem('lang') || 'en');
+    enBtn.addEventListener('click', () => setLanguage('en'));
+    ptBtn.addEventListener('click', () => setLanguage('pt'));
+  } else {
+    document.documentElement.style.opacity = '';
+  }
 });
 
 // ===== RELATIVE DATE =====

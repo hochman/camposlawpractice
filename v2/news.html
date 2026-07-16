@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/clp.ico">
+  <script src="languages.js"></script>
   <script>document.documentElement.style.opacity='0'</script>
 </head>
 <body>
@@ -176,14 +177,10 @@
     const enBtn = document.getElementById('en-btn');
     const ptBtn = document.getElementById('pt-btn');
 
-    fetch('languages.json')
-      .then(r => r.json())
-      .then(data => {
-        i18n = data;
-        applyLang(localStorage.getItem('lang') || 'en');
-        enBtn.addEventListener('click', () => applyLang('en'));
-        ptBtn.addEventListener('click', () => applyLang('pt'));
-      });
+    i18n = window.__i18n || {};
+    applyLang(localStorage.getItem('lang') || 'en');
+    enBtn.addEventListener('click', () => applyLang('en'));
+    ptBtn.addEventListener('click', () => applyLang('pt'));
 
     function applyLang(lang) {
       currentLang = lang;
@@ -201,7 +198,6 @@
         el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
       });
       renderUpdatedLabel();
-      document.documentElement.style.transition = 'opacity 0.12s';
       document.documentElement.style.opacity = '';
     }
 
