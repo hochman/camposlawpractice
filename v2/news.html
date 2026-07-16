@@ -178,6 +178,9 @@
     const ptBtn = document.getElementById('pt-btn');
 
     i18n = window.__i18n || {};
+    let allNews = [];
+    let activeFilter = 'all';
+    let lastUpdated = '';
     applyLang(localStorage.getItem('lang') || 'en');
     enBtn.addEventListener('click', () => applyLang('en'));
     ptBtn.addEventListener('click', () => applyLang('pt'));
@@ -234,9 +237,6 @@
     };
 
     // ── News rendering ────────────────────────────────────────────────────────
-    let allNews = [];
-    let activeFilter = 'all';
-    let lastUpdated = '';
 
     const grid    = document.getElementById('news-grid');
     const loading = document.getElementById('news-loading');
