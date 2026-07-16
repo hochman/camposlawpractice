@@ -21,24 +21,48 @@ MAX_CANDIDATES = 80   # items sent to Claude for filtering
 MAX_FINAL      = 15   # items kept in the final JSON
 DAYS_LOOKBACK  = 30   # ignore articles older than this
 
-# Sources blocked regardless of content — non-Australian publications
-BLOCKED_SOURCES = frozenset([
-    'vietnam investment review', 'vir',
-    'indian express', 'business standard',
-    'times of india', 'hindustan times', 'ndtv',
-    'india today', 'moneycontrol', 'financial express',
-    'the hans india', 'livemint', 'economic times',
-    'fragomen',          # immigration consultancy, not journalism
-    'daily sabah',       # Turkish
-    'manila bulletin', 'philippine daily',
-    'the nation thailand',
-    'gulf news', 'khaleej times',
+# Only accept sources from these domains — whitelist approach
+# Accepts: Australian TLDs (.au), Brazilian TLDs (.com.br/.net.br/.org.br),
+# and a small set of reputable global outlets with strong Australian coverage.
+ALLOWED_DOMAINS = frozenset([
+    'theguardian.com', 'reuters.com', 'apnews.com', 'bbc.com', 'bbc.co.uk',
 ])
 
 
-def is_blocked_source(source_name: str) -> bool:
+def _extract_domain(url: str) -> str:
+    try:
+        netloc = urlparse(url).netloc.lower()
+        return netloc[4:] if netloc.startswith('www.') else netloc
+    except Exception:
+        return ''
+
+
+def is_allowed_source(source_name: str, source_url: str) -> bool:
+    """Return True only for Australian, Brazilian, or whitelisted global outlets."""
+    domain = _extract_domain(source_url) if source_url else ''
+
+    # Block URL shorteners and aggregators masquerading as sources
+    if domain in ('t.co', 'bit.ly', 'tinyurl.com', 'buff.ly'):
+        return False
+
+    if domain:
+        if domain.endswith('.au'):
+            return True
+        if domain.endswith('.com.br') or domain.endswith('.net.br') or domain.endswith('.org.br'):
+            return True
+        if domain in ALLOWED_DOMAINS:
+            return True
+        # Domain present but not AU/BR/whitelisted → reject
+        return False
+
+    # No URL available — fall back to name heuristics
     name = source_name.lower()
-    return any(blocked in name for blocked in BLOCKED_SOURCES)
+    au_keywords = ('abc', 'sbs', 'smh', 'guardian', 'age', 'herald', 'news.com.au',
+                   'afr', 'courier', 'telegraph', 'australian', 'perthnow',
+                   'brisbane times', 'watoday', 'crikey', 'nine', 'seven')
+    if any(k in name for k in au_keywords):
+        return True
+    return False
 
 
 def fetch_rss(query):
@@ -120,13 +144,16 @@ def filter_and_annotate(items):
 
 Below are {len(items)} recent news headlines. Your task:
 
-1. Select up to {MAX_FINAL} headlines that are DIRECTLY about Australian immigration. Include only items that clearly involve: Australian visa policy, processing times, fee changes, new or cancelled visa subclasses, Australian migration law changes, skilled migration to Australia, partner visas, Australian citizenship, or decisions by the Australian Department of Home Affairs.
+1. Select up to {MAX_FINAL} headlines that are DIRECTLY about Australian immigration LAW. Include only items that clearly involve: Australian visa policy, processing times, fee changes, new or cancelled visa subclasses, Australian migration law changes, skilled migration to Australia, partner visas, Australian citizenship, or decisions by the Australian Department of Home Affairs.
 
-   EXCLUDE:
+   EXCLUDE (these are NOT immigration law):
+   - Customs and border procedures that apply to all travellers regardless of visa status (e.g. passenger arrival cards, digital declaration forms, biosecurity checks, duty-free limits) — these are border operations, not immigration law
+   - General travel or tourism articles
    - News about other countries' immigration systems (e.g. Vietnam, India, US, UK, Canada)
    - Generic world news that only tangentially mentions Australia
    - Articles from non-Australian publications where Australia is not the primary focus
    - Press releases or content from immigration consultancy firms (e.g. Fragomen)
+   - Political opinion pieces about immigration sentiment or culture debates
 
    SOURCE PREFERENCE: Strongly prefer articles from reputable Australian outlets — ABC News, The Sydney Morning Herald, The Guardian Australia, SBS News, The Age, The Australian, News.com.au, AFR. If two articles cover the same topic, select the one from the more credible Australian source.
 
@@ -136,7 +163,7 @@ Below are {len(items)} recent news headlines. Your task:
    - Is completely neutral — do NOT frame it as commentary from any law firm, adviser, or organisation
    - Does NOT mention specific cities, firm names, or give legal advice
    - Is concise enough to display in full without truncation (aim for ~60 words per language)
-   - The Portuguese version must be a natural translation — not word-for-word, but clear and idiomatic pt-BR
+   - The Portuguese (pt-BR) version must read like natural, fluent Brazilian Portuguese — NOT a literal word-for-word translation. Use vocabulary and phrasing a Brazilian would actually use. If the English version uses technical or legal terms, find the equivalent Brazilian term. Avoid anglicisms or constructions that sound awkward in Portuguese.
 
 3. Assign one category: "Visas", "Law & Policy", "Work Visas", "Student Visas", "Permanent Residency", or "General"
 
@@ -194,8 +221,8 @@ if __name__ == "__main__":
     unique = deduplicate(all_items)
     recent = [i for i in unique if is_recent(i["date"])]
 
-    # Remove blocked non-Australian sources before sending to Claude
-    filtered = [i for i in recent if not is_blocked_source(i.get('source', ''))]
+    # Whitelist: keep only AU, BR, or approved global sources
+    filtered = [i for i in recent if is_allowed_source(i.get('source', ''), i.get('source_url', ''))]
     print(f"\nAfter source filter: {len(filtered)} / {len(recent)} items kept")
 
     filtered.sort(key=lambda x: x["date"], reverse=True)
