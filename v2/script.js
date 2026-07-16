@@ -188,6 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
           el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
         });
 
+        document.documentElement.style.transition = 'opacity 0.12s';
         document.documentElement.style.opacity = '';
       };
 
