@@ -187,6 +187,8 @@ document.addEventListener("DOMContentLoaded", () => {
         document.querySelectorAll('[data-commentary-en]').forEach(el => {
           el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
         });
+
+        document.documentElement.style.opacity = '';
       };
 
       setLanguage(localStorage.getItem('lang') || 'en');

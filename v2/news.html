@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="img/clp.ico">
+  <script>document.documentElement.style.opacity='0'</script>
 </head>
 <body>
 
@@ -200,6 +201,7 @@
         el.textContent = lang === 'pt' ? (el.dataset.commentaryPt || el.dataset.commentaryEn) : el.dataset.commentaryEn;
       });
       renderUpdatedLabel();
+      document.documentElement.style.opacity = '';
     }
 
     // ── Date formatting ───────────────────────────────────────────────────────
