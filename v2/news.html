@@ -179,13 +179,14 @@
       .then(r => r.json())
       .then(data => {
         i18n = data;
-        applyLang('en');
+        applyLang(localStorage.getItem('lang') || 'en');
         enBtn.addEventListener('click', () => applyLang('en'));
         ptBtn.addEventListener('click', () => applyLang('pt'));
       });
 
     function applyLang(lang) {
       currentLang = lang;
+      localStorage.setItem('lang', lang);
       document.querySelectorAll('[data-key]').forEach(el => {
         const key = el.getAttribute('data-key');
         if (i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];

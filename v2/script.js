@@ -153,6 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       const setLanguage = (lang) => {
         currentLang = lang;
+        localStorage.setItem('lang', lang);
 
         keyEls.forEach(el => {
           const key = el.getAttribute('data-key');
@@ -188,7 +189,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
       };
 
-      setLanguage('en');
+      setLanguage(localStorage.getItem('lang') || 'en');
       enBtn.addEventListener('click', () => setLanguage('en'));
       ptBtn.addEventListener('click', () => setLanguage('pt'));
     });
