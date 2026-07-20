@@ -16,6 +16,10 @@ window.__i18n = {
     "hero-cta-primary": "Book a Consultation",
     "hero-cta-secondary": "Our Services",
 
+    "qls-banner-title": "Protect yourself from migration fraud",
+    "qls-banner-body": "Before engaging any professional to handle your visa, verify they are formally registered with the Law Society in their state. Migration agents are not lawyers and are not authorised to practise law or provide legal advice.",
+    "qls-banner-cta": "Verify Gilmara's Registration",
+
     "trust-experience-label": "Years of Experience",
     "trust-cases-label": "Successful Cases",
     "trust-languages-label": "Bilingual EN & PT",
@@ -150,6 +154,10 @@ window.__i18n = {
     "hero-subtitle": "Serviços especializados em direito de imigração para indivíduos e famílias. Representação dedicada e atendimento bilíngue em português e inglês.",
     "hero-cta-primary": "Agendar Consulta",
     "hero-cta-secondary": "Nossos Serviços",
+
+    "qls-banner-title": "Proteja-se de golpes em imigração",
+    "qls-banner-body": "Antes de contratar um profissional para cuidar do seu visto, verifique se ele é formalmente registrado na Law Society do estado em que reside. Agentes de imigração não são advogados e não estão autorizados a exercer advocacia nem a prestar assessoria jurídica.",
+    "qls-banner-cta": "Verifique o Registro da Gilmara",
 
     "trust-experience-label": "Anos de Experiência",
     "trust-cases-label": "Casos de Sucesso",
