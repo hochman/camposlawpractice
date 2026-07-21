@@ -17,13 +17,13 @@ window.__i18n = {
     "hero-cta-secondary": "Our Services",
 
     "qls-banner-title": "Protect yourself from migration fraud",
-    "qls-banner-body": "Before engaging any professional to handle your visa, verify they are formally registered with the Law Society in their state. Migration agents are not lawyers and are not authorised to practise law or provide legal advice.",
+    "qls-banner-body": "Before engaging any professional to handle your visa, verify they are formally registered with the Law Society in their state (such as the Queensland Law Society — QLS). Migration agents are not lawyers and are not authorised to practise law or provide legal advice.",
     "qls-banner-cta": "Verify Gilmara's Registration",
 
     "trust-experience-label": "Years of Experience",
     "trust-cases-label": "Successful Cases",
     "trust-languages-label": "Bilingual EN & PT",
-    "trust-registered-label": "QLS Registered",
+    "trust-registered-label": "Queensland Law Society Registered",
 
     "about-label": "About Us",
     "about-title": "A Lawyer Who Understands Your Journey",
@@ -32,7 +32,7 @@ window.__i18n = {
     "about-p3": "At Campos Law Practice, you are never just a case number. You receive dedicated, strategic legal advice from a professional who genuinely cares about your outcome.",
     "about-cta": "Get in Touch",
     "about-credential-role": "Migration Solicitor",
-    "about-credential-reg": "QLS Registered",
+    "about-credential-reg": "Queensland Law Society (QLS) Registered",
     "about-credential-lang": "English & Portuguese",
 
     "services-label": "Our Expertise",
@@ -156,13 +156,13 @@ window.__i18n = {
     "hero-cta-secondary": "Nossos Serviços",
 
     "qls-banner-title": "Proteja-se de golpes em imigração",
-    "qls-banner-body": "Antes de contratar um profissional para cuidar do seu visto, verifique se ele é formalmente registrado na Law Society do estado em que reside. Agentes de imigração não são advogados e não estão autorizados a exercer advocacia nem a prestar assessoria jurídica.",
+    "qls-banner-body": "Antes de contratar um profissional para cuidar do seu visto, verifique se ele é formalmente registrado na Law Society do estado em que reside (como a Queensland Law Society — QLS). Agentes de imigração não são advogados e não estão autorizados a exercer advocacia nem a prestar assessoria jurídica.",
     "qls-banner-cta": "Verifique o Registro da Gilmara",
 
     "trust-experience-label": "Anos de Experiência",
     "trust-cases-label": "Casos de Sucesso",
     "trust-languages-label": "Bilíngue PT & EN",
-    "trust-registered-label": "Membro da QLS",
+    "trust-registered-label": "Registrada na Queensland Law Society",
 
     "about-label": "Sobre Nós",
     "about-title": "Uma Advogada que Entende Sua Jornada",
@@ -171,7 +171,7 @@ window.__i18n = {
     "about-p3": "Na Campos Law Practice, você nunca é apenas um número de processo. Você recebe orientação jurídica estratégica e personalizada de uma profissional que genuinamente se importa com o seu resultado.",
     "about-cta": "Entre em Contato",
     "about-credential-role": "Advogada de Imigração",
-    "about-credential-reg": "Registrada na QLS",
+    "about-credential-reg": "Registrada na Queensland Law Society (QLS)",
     "about-credential-lang": "Português & Inglês",
 
     "services-label": "Nossa Atuação",

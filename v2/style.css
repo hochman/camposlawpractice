@@ -204,11 +204,14 @@ h1, h2, h3, h4 {
 .lang-switch { display: flex; gap: 0.35rem; align-items: center; }
 
 .lang-btn {
-  width: 34px; height: 22px;
-  padding: 0;
+  width: auto; height: auto;
+  padding: 0.2rem 0.5rem 0.2rem 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
   background: transparent;
   border: none;
-  border-radius: 3px;
+  border-radius: 4px;
   cursor: pointer;
   opacity: 0.45;
   transition: opacity var(--ease), box-shadow var(--ease), transform var(--ease);
@@ -220,10 +223,18 @@ h1, h2, h3, h4 {
 }
 
 .flag-mini {
-  width: 34px; height: 22px;
-  border-radius: 3px;
+  width: 26px; height: 17px;
+  border-radius: 2px;
   object-fit: cover;
   display: block;
+}
+
+.lang-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.9);
+  letter-spacing: 0.06em;
+  line-height: 1;
 }
 
 .qls-topbar-link { display: none; }
@@ -1384,8 +1395,8 @@ h1, h2, h3, h4 {
   .hero-scroll { position: relative; bottom: auto; left: auto; transform: none; margin-top: 2rem; }
 
   .hamburger-btn { display: flex; }
-  .qls-nav-img { display: none; }
-  .qls-topbar-link { display: flex; align-items: center; }
+  .qls-nav-img { display: block; height: 36px; }
+  .qls-topbar-link { display: none; }
 
   .navbar {
     flex-wrap: nowrap;
@@ -1439,7 +1450,6 @@ h1, h2, h3, h4 {
   }
   .topbar-contacts a[href^="mailto"],
   .topbar-location { display: none; }
-  .qls-topbar-img { height: 28px; }
 
   .section { padding: 4rem 0; }
   .container { padding: 0 1.25rem; }
