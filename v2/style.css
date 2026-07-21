@@ -1391,7 +1391,7 @@ h1, h2, h3, h4 {
 }
 
 /* Tablet and below: hamburger nav */
-@media (max-width: 1180px) {
+@media (max-width: 1366px) {
   .hamburger-btn { display: flex; }
 
   .navbar {
