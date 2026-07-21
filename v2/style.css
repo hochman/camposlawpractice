@@ -1390,21 +1390,14 @@ h1, h2, h3, h4 {
   .trust-num { font-size: 1.3rem; }
 }
 
-@media (max-width: 768px) {
-  .hero { min-height: 0; padding: 3.5rem 1.25rem 2rem; justify-content: flex-start; }
-  .hero-scroll { position: relative; bottom: auto; left: auto; transform: none; margin-top: 2rem; }
-
+/* Tablet and below: hamburger nav */
+@media (max-width: 1180px) {
   .hamburger-btn { display: flex; }
-  .qls-nav-img { display: block; height: 36px; }
-  .qls-topbar-link { display: none; }
 
   .navbar {
     flex-wrap: nowrap;
     padding: 0.75rem 1rem;
   }
-
-  .brand-logo { height: 48px; }
-  .brand-name { font-size: 1.2rem; }
 
   .nav-links {
     display: none;
@@ -1429,6 +1422,14 @@ h1, h2, h3, h4 {
   .nav-links a::after { display: none; }
   .nav-links a.active { color: var(--accent); background: var(--bg-alt); }
   .nav-links li:last-child a { border-bottom: none; }
+}
+
+@media (max-width: 768px) {
+  .hero { min-height: 0; padding: 3.5rem 1.25rem 2rem; justify-content: flex-start; }
+  .hero-scroll { position: relative; bottom: auto; left: auto; transform: none; margin-top: 2rem; }
+
+  .brand-logo { height: 48px; }
+  .brand-name { font-size: 1.2rem; }
 
   .topbar {
     flex-direction: row;
