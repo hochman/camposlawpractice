@@ -9,7 +9,6 @@ window.__i18n = {
     "nav-news": "News",
     "nav-contact": "Contact",
 
-    "hero-eyebrow": "Migration Law · Sunshine Coast, QLD",
     "hero-title": "Your Australian Dream,",
     "hero-title-em": "Our Legal Expertise",
     "hero-subtitle": "Expert, personalised migration law services for individuals and families. Dedicated representation and bilingual support in English and Portuguese.",
@@ -148,7 +147,6 @@ window.__i18n = {
     "nav-news": "Notícias",
     "nav-contact": "Contato",
 
-    "hero-eyebrow": "Direito de Imigração · Sunshine Coast, QLD",
     "hero-title": "Seu Sonho Australiano,",
     "hero-title-em": "Nossa Expertise Jurídica",
     "hero-subtitle": "Serviços especializados em direito de imigração para indivíduos e famílias. Representação dedicada e atendimento bilíngue em português e inglês.",
