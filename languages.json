@@ -24,12 +24,12 @@
     "appointment-title": "Book a consultation",
     "appointment-text": "Schedule a video call appointment with our migration law expert: 25 minutes for $200 or 50 minutes for $380 (including GST).",
     "appointment-text2": "Please wait for the payment instructions, which will be sent by email prior to your appointment.",
-    "appointment-cta": "Get in Touch to Book",
+    "appointment-cta": "Get in touch to book",
     "reviews-title": "Client Reviews",
     "reviews-subtitle": "What our clients say about us",
     "review1-text": "I met Gilmara during a very difficult time after a visa refusal. From the very beginning and throughout the entire process, she proved to be a highly dedicated professional, fully committed to delivering the best possible outcome for her client. She was able to reassure me and develop a strategy to overturn the immigration decision through an appeal at the ART. We won the appeal in a record time of approximately two months, and after another month the visa was approved in line with the strategy we had outlined. I am very grateful for the work she did, and I highly recommend her to anyone who needs the support of an excellent professional.",
     "review1-author": "— Luis Fernando Salazar Alves",
-    "reviews-cta": "View All Reviews on Google",
+    "reviews-cta": "View all reviews on Google",
     "see-more": "See more",
     "see-less": "See less",
     "date-today": "Today",
@@ -60,7 +60,7 @@
     "form-invalid-email": "Please enter a valid email address.",
     "form-success": "Thanks for your submission!",
     "form-error": "Oops! There was a problem submitting your form",
-    "form-submit": "Send Message"
+    "form-submit": "Send message"
   },
   "pt": {
     "nav-home": "Início",
@@ -87,12 +87,12 @@
     "appointment-title": "Agende uma consulta",
     "appointment-text": "Agende uma consulta por videochamada de 25 minutos por $200 ou 50 minutos por $380 (incl GST) com nossa especialista em direito de imigração.",
     "appointment-text2": "Favor aguardar as instruções para pagamento que serão enviadas por email antes da data agendada.",
-    "appointment-cta": "Entre em Contato para Agendar",
+    "appointment-cta": "Entre em contato para agendar",
     "reviews-title": "Avaliações de Clientes",
     "reviews-subtitle": "O que nossos clientes dizem sobre nós",
     "review1-text": "I met Gilmara during a very difficult time after a visa refusal. From the very beginning and throughout the entire process, she proved to be a highly dedicated professional, fully committed to delivering the best possible outcome for her client. She was able to reassure me and develop a strategy to overturn the immigration decision through an appeal at the ART. We won the appeal in a record time of approximately two months, and after another month the visa was approved in line with the strategy we had outlined. I am very grateful for the work she did, and I highly recommend her to anyone who needs the support of an excellent professional.",
     "review1-author": "— Luis Fernando Salazar Alves",
-    "reviews-cta": "Ver Todas as Avaliações no Google",
+    "reviews-cta": "Ver todas as avaliações no Google",
     "see-more": "Ver mais",
     "see-less": "Ver menos",
     "date-today": "Hoje",
@@ -123,6 +123,6 @@
     "form-invalid-email": "Por favor, insira um endereço de e-mail válido.",
     "form-success": "Mensagem enviada com sucesso!",
     "form-error": "Ops! Ocorreu um problema ao enviar o formulário.",
-    "form-submit": "Enviar Mensagem"
+    "form-submit": "Enviar mensagem"
   }
 }
