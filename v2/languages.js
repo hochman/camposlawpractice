@@ -16,7 +16,7 @@ window.__i18n = {
     "hero-cta-secondary": "Our services",
 
     "about-label": "About Us",
-    "about-title": "A Lawyer Who Understands Your Journey",
+    "about-title": "A lawyer who understands your journey",
     "about-p1": "Gilmara Campos Alves de Melo is a Queensland-registered migration solicitor with over a decade of experience helping individuals and families build their lives in Australia.",
     "about-p2": "Fluent in both English and Portuguese, Gilmara brings a deeply personal understanding to every case — having navigated the complexities of starting a new life in a new country herself.",
     "about-p3": "At Campos Law Practice, you are never just a case number. You receive dedicated, strategic legal advice from a professional who genuinely cares about your outcome.",
@@ -145,7 +145,7 @@ window.__i18n = {
     "hero-cta-secondary": "Nossos serviços",
 
     "about-label": "Sobre Nós",
-    "about-title": "Uma Advogada que Entende Sua Jornada",
+    "about-title": "Uma advogada que entende sua jornada",
     "about-p1": "Gilmara Campos Alves de Melo é uma advogada de imigração registrada em Queensland com mais de uma década de experiência ajudando indivíduos e famílias a construírem suas vidas na Austrália.",
     "about-p2": "Fluente em português e inglês, Gilmara traz uma compreensão profundamente pessoal a cada caso — ela conhece os desafios e as emoções de recomeçar em um novo país.",
     "about-p3": "Na Campos Law Practice, você nunca é apenas um número de processo. Você recebe orientação jurídica estratégica e personalizada de uma profissional que genuinamente se importa com o seu resultado.",
