@@ -1,131 +1,68 @@
 {
-  "updated": "2026-08-24T07:58:34Z",
+  "updated": "2026-08-27T18:06:54Z",
   "items": [
     {
-      "title": "Australia tightens restrictions against ‘Front Agents’: Here's how to avoid fake migration assistance - SBS",
-      "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxNSEhfRlRTc2pYOUpkRzVxUFAweU9uV1FlZzFiWEhJMEpHeHRPdUxYQi1JUTJWWU9QWm5EekFfb1hjcmhsRlBJWU1FSlYtNXVSSDFmV2lrQVdUZVl1cUd3WWdhUUFsc3lMT3pFMUlabWNaVFhGUWtjMzhDR3VIU3BkVkhXcS03dV9HZGY5M1VJZVMtRWh5djFPUGRCUWNQUm9OSTJJSkpyZnUwUG40ZlVRWFZiekUwaEhKZXU0X29qT25BbEhJdk9fb1RyU3BlbEt1SmZfUlo1RktwakJZaEVQdElMcmF6MGlJWVJnbmJ1MWVsTlFtQThGUEJsOA?oc=5",
+      "title": "Albanese reveals humanitarian visa intake won't be cut, amid migration reform questions - SBS",
+      "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOVkdpM0pLbDVQWUlFQTk5Y2pwWVlXY0RGVDQybFc3QjZHZlAtZjNVZ2diSkcyUlE3SzR4Nlp2SkZ1ei0tQWZfWEV0T01keGszeXB1S1NhZTFmRUNKZl9GUzZFR2NtTWRoSkI2SEZXZ0tpSTNUdzEyWm1pX0N6Vmk5SFRwZ1ZCdC1PN1dHWjRPMDNwNEYzTkEzVkdhcXJjMkRZQkVqa1YycjQ?oc=5",
+      "date": "2026-08-27",
+      "source": "SBS",
+      "category": "Law & Policy",
+      "commentary": "The Prime Minister confirmed that Australia's humanitarian visa intake will not be reduced, despite broader questions about migration reform. This means the number of places available for refugees and others under the humanitarian program will remain stable for now.",
+      "commentary_pt": "O primeiro-ministro confirmou que a cota de vistos humanitários da Austrália não será reduzida, apesar dos debates sobre reforma migratória. Na prática, o número de vagas disponíveis para refugiados e outros beneficiários do programa humanitário deve permanecer estável por enquanto."
+    },
+    {
+      "title": "Australia’s partner visa backlog: Higher fees, longer waits leave applicant ‘mentally broken’ - SBS",
+      "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQbWUyRHJ6c0RFSzl1TUpoRTJ3ZmE0bkl0Vzd1THhqcHp0R1VDX1pvendjdF9oUEZsZlBLUTZOeGUxZkNEeE9VNUtvOGlPcGdLT2pvRUdDaFBCcnZXNmFNVTNPUm1YS01QcnYxdHQtbUxYbGlNbV9fNFU1MzN4WlpUc2RfUGJoVW5PTkFvTWktN0VRZXVJV3NvX0xVUE5VNXJoS1FBYlZHdHBBRjhuN3hQaFpCR2lFVGs2REpCVFk0bDIzNmZvamdZSGdMYW1NZVY4UmRrX3Y3cTYzS29XalZGZ0MtdDJ4Z2JXdjE4?oc=5",
+      "date": "2026-08-27",
+      "source": "SBS",
+      "category": "Visas",
+      "commentary": "Australia's partner visa program is facing a growing backlog, with higher application fees and longer processing times affecting applicants. Those seeking to join partners in Australia may experience extended waits and increased costs during the process.",
+      "commentary_pt": "O programa de vistos de parceiro da Austrália enfrenta uma fila cada vez maior, com taxas mais altas e prazos de análise mais longos. Quem busca se reunir ao parceiro na Austrália pode enfrentar esperas prolongadas e custos maiores durante o processo."
+    },
+    {
+      "title": "Partner Visa: New prioritization process - SBS",
+      "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxNQnlmalNpNy1lX0Z1NUpfeWJ6cnpWdC16Ykc1Q1Bkb0RkcFBXbmk4TmFMcjJDWlhrcXpLNzJzZnE5RFFscXV0cGdSMVBPWmFSVFY2UVd5OVJIYU9rUm1QZWxkeEw3bG5DZXJNNERGQnVLRTdOSmphdVRIb2ctV0xtNjhfOUFkV0Q3akNxeFg4MjlHcEZXc2FvdnF5OVVQLXdxbUtQU1RlNlZneG5DWnBjTA?oc=5",
+      "date": "2026-08-27",
+      "source": "SBS",
+      "category": "Visas",
+      "commentary": "A new prioritisation process has been introduced for partner visa applications in Australia. This change may affect the order in which applications are assessed, potentially impacting how quickly applicants receive a decision.",
+      "commentary_pt": "Foi introduzido um novo processo de priorização para os pedidos de visto de parceiro na Austrália. A mudança pode alterar a ordem de análise das solicitações e afetar a rapidez com que os requerentes recebem uma decisão."
+    },
+    {
+      "title": "PM rules out British backpackers being forced to work in regions - ABC News & Headlines – Australian Broadcasting Corporation",
+      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNUVpFVW9xaEVYOXRvb2t0U2NPY05KY1lJa1BiVVQyak90REtuUHRFaklFcFlVV19rc2M3M2Y4eVFKbmRPYU1OcGdpWmIyRGE5bWJ4b0pDRXZTd0RPUEtma016VUc1VU81RGZHWG1SQXZkQW15WEFqTUZTYzI3dHRUMEJ2VFRaVUpVUENnTUMzZmpuUlFSbHlJNXFn?oc=5",
+      "date": "2026-08-26",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "category": "Work Visas",
+      "commentary": "The Prime Minister ruled out requiring British backpackers to work in regional areas as a condition of their visa. This means working holiday visa holders from the UK will not face mandatory regional work rules under this proposal.",
+      "commentary_pt": "O primeiro-ministro descartou a possibilidade de obrigar mochileiros britânicos a trabalhar em áreas regionais como condição do visto. Assim, os titulares de visto de férias e trabalho vindos do Reino Unido não terão de cumprir exigências obrigatórias de trabalho em regiões afastadas."
+    },
+    {
+      "title": "Revealed: Labor to target students, visitor visas in migration crackdown - The Australian",
+      "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxQdmZWak5CYkg5UWdud01FSHFOVUlzQldqazdROHRtckJQU0JLT1JlVk01MHhRT1ZGS3NIZ3B2a0QwTzFtbGNpTDRkdXlSMjA1MXhldHNlZ3dVZlJ4OFgzSjJXNlJFeDlfLWE2MElERGo2b3NhbGVFd1dOdEVQS1VIbnFpeTRETnJJNmRSYnpfLVJOcUdZLW5hSmU3LVQ0U2VQQno1SlNGSzZPUDVGeGlMNHFDUGhsN3FDOU95TUNiUUpSQUxuS1BEVFFDSDJNMkNZUFRQNDBUTk1NQWhRRl9YdUFwOXNTdlFrSVNYV19lRHFTMEZ1cGJIZEFjSkpZMFpmSWtHQm92LWYwZ9IBjwJBVV95cUxPdWNMQlQ2X081NzdwdGNSUDIzTjhiOUlUTGpYbkZBZlQ3RnhBdlp3UFEyZWZ2UTkyUk56SGtmU3lETUI1LVRpT2xITWI2ZGt3eTF3elFIdXNRVzByblZ4QUFHRjJHd3BxTXdrdk9ad3BXbjQzSTEzRzZLM3ZvOWM5OWU4QnFWYTBldFFyaWlrdk9lSXJoREZCeGhUMkFJcU56YjRpamhfVl9NVTJjZ3BRaVUySXFhUGZER3FSbG9JZ3dtUlJzU3VJWHI4Z1BhMDdZbld4UHVITFhxdHhyZ3AwNHRKTTJZYXZ4dVFLQ28wY3AyR3R3VnZhQ2xpblQ2OHF1cU9tUWcxRmtJRHA4WFAw?oc=5",
+      "date": "2026-08-26",
+      "source": "The Australian",
+      "category": "Law & Policy",
+      "commentary": "The government is reportedly planning to target student and visitor visas as part of a broader migration crackdown. Applicants for these visa types may face tighter requirements or increased scrutiny as policies are tightened.",
+      "commentary_pt": "O governo estaria planejando restringir os vistos de estudante e de visitante como parte de um endurecimento das regras migratórias. Quem solicita esses tipos de visto pode enfrentar exigências mais rígidas ou maior fiscalização com as novas medidas."
+    },
+    {
+      "title": "Labor cuts refugee intake by a third - AFR",
+      "link": "https://news.google.com/rss/articles/CBMikwFBVV95cUxQOUoyeHhiaGxEMGFGVzlWWEVxTUVqbkpvMWZqZ2hjUGN6dTdSUGVsaFFLN25zbFJZSlAtRXRPUlBhU1dteFJSRU1BSlhJd0hnVVpoWVN4N2JEMUJwV1JyMTN4cm1WRFJ1a1V2bElSNnI0NkpWSXRFMGV3VnAwc2FDVXNXUDgwZmstc2lSZzA0Nm1hX00?oc=5",
+      "date": "2026-08-26",
+      "source": "AFR",
+      "category": "Law & Policy",
+      "commentary": "The government has decided to reduce Australia's refugee intake by about one third. This change lowers the number of places available under the refugee program, affecting those seeking resettlement in Australia.",
+      "commentary_pt": "O governo decidiu reduzir em cerca de um terço a cota de refugiados da Austrália. A mudança diminui o número de vagas disponíveis no programa de refugiados, afetando quem busca reassentamento no país."
+    },
+    {
+      "title": "We take international students, so why not foreign tradies? - AFR",
+      "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPcVlFcFhic2NHQk9DakpzbWNMRW5PRDFLZkFwQUNrLVU5T2M1TThMb0wtQ21tMC1xX0FaZ3dCZFBWcXZKNVpyZ2YwRTJ0Y3N0NjJIS1poOWZfMjVRUDdjRnZsa1h6aHFES3h3Y3hvZ2VkZVctRW5wQ2tvUkEtTmh2clpOb3VzSDd5aXpYSjJIdVlpZmNVMy05OUhtMnd0VFJleFFqZGh6MF9aUmU2d0Jz?oc=5",
       "date": "2026-08-24",
-      "source": "SBS",
-      "category": "Law & Policy",
-      "commentary": "Australian authorities have strengthened measures against unregistered 'front agents' who provide fake or unlawful migration assistance. Visa applicants are urged to verify that anyone helping with their application is properly registered, as using unauthorised operators can put their visa outcomes at risk.",
-      "commentary_pt": "As autoridades australianas reforçaram as medidas contra os chamados 'agentes de fachada', que oferecem assistência migratória falsa ou ilegal. Quem solicita visto deve confirmar se o profissional que o auxilia está devidamente registrado, já que recorrer a operadores não autorizados pode comprometer o resultado do pedido de visto."
-    },
-    {
-      "title": "Grain growers worry visa pause will leave harvest short-staffed - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOOVN4NVQ1a2FmalBwcmV5Z3puTVl2c3dON2xpVE0yOWFIbVlGa2FyV2NUNjA3NW5HV1FjUEVmOWZsdk9Bd2N2NUtDZWFXZ3J6RFdaOVN5enpYNkxjQk9Jc21RNDdfNzA4Q3VzQUNmWldEYWlYMElWa09JTkhSeUJuZEo0ekp1UllwUF9tQWV2MXNhbDlYay1pNTdxc05wUQ?oc=5",
-      "date": "2026-08-22",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "source": "AFR",
       "category": "Work Visas",
-      "commentary": "A pause in visa processing has raised concerns among grain growers that the coming harvest could be left short of workers. The slowdown affects seasonal and working holiday visa holders who typically fill agricultural labour roles during peak periods.",
-      "commentary_pt": "Uma pausa no processamento de vistos gerou preocupação entre produtores de grãos, que temem falta de mão de obra na próxima colheita. A lentidão afeta portadores de vistos sazonais e de férias e trabalho, que costumam ocupar as vagas agrícolas nos períodos de pico."
-    },
-    {
-      "title": "Overseas nurses, teachers among skilled workers bumped to back of visa queue - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNdWtnLWJOanVValdCMnkzeVpUQVJrRjk5LTgzR0J4VUZ4YkE0QU5RZzI0OGI3N2VDQUwxTWY4aGhSWEtjaUM1T2lKNE5odDFvSExEUWFCanpOTmZjX0ZCUk9EZV9oR3pTamM5LXZWOTBBVjNZVk9RU1RvelYtd183RmVKYkRodVhhNER4bldzdHVGYm9DRm1PQlpR?oc=5",
-      "date": "2026-08-21",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Work Visas",
-      "commentary": "Overseas skilled workers such as nurses and teachers have been moved further back in the visa processing queue following changes to priority arrangements. This means longer waiting times for some skilled applicants hoping to work in Australia.",
-      "commentary_pt": "Trabalhadores qualificados vindos do exterior, como enfermeiros e professores, foram colocados mais atrás na fila de processamento de vistos após mudanças nas prioridades. Isso significa tempos de espera mais longos para alguns candidatos qualificados que pretendem trabalhar na Austrália."
-    },
-    {
-      "title": "The partner visa backlog leaving Australians in limbo - SBS",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOeTM2aUdoNjgxTGEwaUZkTDBDc1FDS0xZVm56bDRvdVI0LTIycHpVemV3dEFDMGZsbUF6SGNKaGlqOUVyZHA1VDNtX2MwekVWdndiSmlrSGJkZEFhLUdISFd0OEZiVmc0SzJzRUNSenpralUyQVZyeWwxYUlWWjFJZ3UwVWFkTmRueG95S2JnQjRyNk5Bci1XUktDd3dhbHRXZHFTTUN5TnAzMGM?oc=5",
-      "date": "2026-08-21",
-      "source": "SBS",
-      "category": "Visas",
-      "commentary": "A growing backlog in partner visa processing is leaving many couples waiting in uncertainty about their future in Australia. The delays affect Australians and their partners who are seeking to live together while their applications remain unresolved.",
-      "commentary_pt": "O acúmulo cada vez maior de pedidos de visto de parceiro tem deixado muitos casais em incerteza sobre seu futuro na Austrália. Os atrasos afetam australianos e seus companheiros que buscam viver juntos enquanto os pedidos continuam sem solução."
-    },
-    {
-      "title": "Afghan refugees like Lina are being deported back to face the Taliban. Can Australia help? - SBS",
-      "link": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxQcjFxZldXZTlrVXVRTGhDUXNVbnlhcE1fUzhabzhrS2F6M21VVUxJNm9sZThiYlQ2YU81V1NuWlpmT2VZcEUzbjRZVUV0cGozbVc2NWF3RkpNWnc3a2J1T1VfdkRpTjlBekFLSVdCRVpYMkpkRHFmc1lZX21vVXFzaWk5YjZmNjRsOTBJa3BQLUdRd1R2MHV4OG13NVJWZUlnZnF3VnFOa0JnMHR1OUxpNlN3SjU3SnBEZmtn?oc=5",
-      "date": "2026-08-21",
-      "source": "SBS",
-      "category": "Law & Policy",
-      "commentary": "Some Afghan refugees are being returned to Afghanistan where they face the Taliban, raising questions about Australia's protection obligations. The situation highlights the impact of visa and asylum decisions on people fleeing persecution.",
-      "commentary_pt": "Alguns refugiados afegãos estão sendo devolvidos ao Afeganistão, onde enfrentam o Talibã, o que levanta dúvidas sobre as obrigações de proteção da Austrália. A situação evidencia o impacto das decisões sobre vistos e asilo na vida de pessoas que fogem de perseguição."
-    },
-    {
-      "title": "Federal Government slowing approvals for backpackers on Australian farms - ABC listen - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPVDBuWjJ6WUZzYVJGOXp1UElqWTJIbzVfSmZaVXJ5MHRPNmpZVmZoV3hPVHRmaE1ubkEwYWFLYzJrUzNMUzQ5MHJDR3dTYVFUSTNWRmZ3Wm1ZWjdpbFE3UlVJd19yZmU4ZWp6UmR2WlhvN1I2VVJ1aTFOVDF4OVpUdzdHdG1OdUtkLTZ6eTBiYw?oc=5",
-      "date": "2026-08-21",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Work Visas",
-      "commentary": "The federal government is slowing the approval of visas for backpackers who work on Australian farms. Farmers warn the delays could reduce the availability of seasonal labour they rely on during harvest.",
-      "commentary_pt": "O governo federal está reduzindo o ritmo de aprovação de vistos para mochileiros que trabalham em fazendas australianas. Produtores alertam que os atrasos podem diminuir a oferta de mão de obra sazonal da qual dependem durante a colheita."
-    },
-    {
-      "title": "'Family is not important?' Australians face uncertain future after visa change - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPMHZjXzMzRlJPRkk1M2p0bHBiQUloNWx3UFZSdC1iVU9yT1BGUXFPVG80d2pZSTEtR0VvQ1ByU1BGWTlQc0lVazE5N0Fwb0Ridjd6T25sSTVXbDNMa0VsSUx6WHZsdVpTYlp5NFJTNHM1emdreTNJSTk2T3RmNUdnTDZMa0lxVjJiOU14MEJobEZmeUljVkFGcW5kNTRoQmZBWG5JWEhLNnpvaHoxd2ZNRHNR?oc=5",
-      "date": "2026-08-20",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Visas",
-      "commentary": "A change to visa rules has left some people in Australia uncertain about their family's future in the country. The adjustments affect how family-related applications are handled and who may be able to remain together.",
-      "commentary_pt": "Uma mudança nas regras de vistos deixou algumas pessoas na Austrália em incerteza sobre o futuro de suas famílias no país. As alterações afetam a forma como os pedidos ligados à família são tratados e quem poderá permanecer junto."
-    },
-    {
-      "title": "Australia’s partner visa backlog is growing as pressure mounts to ease migration - SBS",
-      "link": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxNa041UWU4Vm80bGdxc2hWcHBpWE1FbElZOUY1SnVRYV9fdThHUHJ0MHQ4d2I5T2puT3ZxX1ZYMUEya2E2dWRWbmp5Wkk4WkxEbVRSaTV2SmZKdjNvLTBNcWJSRTFTNkZiNDBzU2FIZGw4cnNWY1ZDai1tUkVCejNoVjdRdm81RWpjZ1V4MWxQaF9vLWh2Z204MjlNR2dWNXl6TDRnZWdJN0RDeUZVN09lUUZkV05RRndXSjE4U1Jzdnk?oc=5",
-      "date": "2026-08-20",
-      "source": "SBS",
-      "category": "Visas",
-      "commentary": "The partner visa backlog continues to grow amid mounting pressure to ease migration numbers. Couples awaiting decisions face extended uncertainty as processing times lengthen.",
-      "commentary_pt": "O acúmulo de pedidos de visto de parceiro continua a crescer em meio à pressão para reduzir os números da imigração. Casais que aguardam decisões enfrentam incerteza prolongada à medida que os prazos de processamento aumentam."
-    },
-    {
-      "title": "Backpackers crucial to business, say farmers as visa approvals pause - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOMHVtb0ZHMllYdDYxbDJDTFZLb2lXendJOERvTHRhcUQtTV9heC1wUkNEVGNBY2gyMVpxdV9fSm54ZTVWOXdUeHFJRnM4SGlrYXdKemlpSm9Ya2x1dFpNcHdIYjFrWjBXTUNSaVlWckpJOERZb3o3UVYxal9rUE1WMUd0REZoZXFhZHNJcGU0N1d5NDJ6dGFsWUVfMjlEMkJJNHFGUU16bURXdDc1WC1qcThTSmNXQQ?oc=5",
-      "date": "2026-08-19",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Work Visas",
-      "commentary": "A pause in visa approvals is affecting the availability of backpackers who are considered essential to many rural businesses. Farmers say the slowdown threatens their ability to fill seasonal labour needs.",
-      "commentary_pt": "Uma pausa nas aprovações de vistos está afetando a disponibilidade de mochileiros considerados essenciais para muitos negócios rurais. Produtores afirmam que a lentidão ameaça sua capacidade de suprir as necessidades de mão de obra sazonal."
-    },
-    {
-      "title": "What is the new priority list for family visas, and which applicants will benefit? - SBS",
-      "link": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxNeDJVN2pRZ0RzWm9nY2dJN3hRTFF4a2dMTEpVSFNWUGhHYVVuQzlFeFNRNTYzekN3SDhSa2U0eTJEOHVOcWF2OUxnLWpQSXJJMF9yZmh3aXpjRHBzVUQ4ekd1blRKTzNibTRVSmd5UDV1Unk0bm45ZDJoZDBEZ3JCSzF3Y3NaNVQxbnlwcVBxSGRqc1QyaHlzVnp6MVBjeXJtSGdoWGZ0RDZmbHh4R1VzWk1DU2dmWnNZUjVCRjUyak1yd0loYTlxUmtEY0xUeGFjN3JjYnNVNG9wbFh2Y2dF?oc=5",
-      "date": "2026-08-19",
-      "source": "SBS",
-      "category": "Visas",
-      "commentary": "A new priority list has been introduced for family visa applications, changing the order in which cases are processed. The changes determine which applicants will see their applications handled sooner and which may wait longer.",
-      "commentary_pt": "Uma nova lista de prioridades foi introduzida para os pedidos de visto de família, alterando a ordem em que os casos são analisados. As mudanças determinam quais solicitantes terão seus pedidos processados mais rápido e quais poderão esperar mais tempo."
-    },
-    {
-      "title": "What you need to know about the working holiday visa pause - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPY3lDZXdpcUtwLXNVYmRqSjFLNnR1Y3BDd1dLLW9mejhpUGZFUnZBTHZJVkVjazdBMVdKekFORHFXb3dYeTEyRlVjWDhWbTJzU05OV3kzMFh2SGVpczh6WDJIa0Rla3VZWHUxb1MzcFYxMHVGeFhTS0c3TThWckVpVGNNYnowMDhqX21MN2Vnd3ZOWXZ1SHhTcVo5eDJvX0xz?oc=5",
-      "date": "2026-08-18",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Work Visas",
-      "commentary": "The government has paused processing of working holiday visas, affecting travellers who combine tourism with short-term work in Australia. Applicants and those already in the country should be aware of the impact on new applications and plans.",
-      "commentary_pt": "O governo suspendeu o processamento dos vistos de férias e trabalho, afetando viajantes que combinam turismo com trabalho temporário na Austrália. Quem solicita o visto e quem já está no país deve ficar atento ao impacto sobre novos pedidos e planos."
-    },
-    {
-      "title": "‘Fake agents’: Migration operators stripped of credentials in crackdown - SMH.com.au",
-      "link": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxNN2pmT3Zqa2w0NWhDVVRxenlNUENRX1h0c3Y5TUFmcGRfT3RkTEdlaGs4OXVteFV1d1UyTXNDZThfMnRmZkJhbDN0T1M5ZGdOZW5BcVZhTDhUNGNxR3BjZURtOFowemdKeER6aUwyM0dnZWk3X0dSMnEzSWVaMlZXRlE3TTB2VjBTMmYzbHZISjE2dkhkVXlDZ1dZZ0Iwckd1MTlJZ2VubllUYkdwX2tVOTBFeFF3UDZGRF9sMmlrSTRxU2VIUDFEZw?oc=5",
-      "date": "2026-08-18",
-      "source": "SMH.com.au",
-      "category": "Law & Policy",
-      "commentary": "Several migration operators have had their credentials revoked in a crackdown on so-called 'fake agents' offering unlawful assistance. Visa applicants are advised to use only properly registered advisers to avoid jeopardising their applications.",
-      "commentary_pt": "Vários operadores de migração tiveram suas credenciais revogadas em uma operação contra os chamados 'agentes falsos' que oferecem assistência ilegal. Recomenda-se que quem solicita visto recorra apenas a consultores devidamente registrados, para não colocar seus pedidos em risco."
-    },
-    {
-      "title": "Temporary visa rules leave Iranian refugee 'trapped in nightmare' - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxPM2JWU3BITFI3OHhSamtrVmI4OGFzcGtqSXJ6QTRjTmtIVV81Q1VnejZwV3NpZ1plQ3BIV1NDX01kQlF2NDlHaWFYZXNoMk9GampNVjJjZnNESGNUT3lCdzdRRFJwMXhQZFJ2SWo4c2JNS0IwNnhKd0F5RkpKejhIWjAxc1hwU2JBY1kyR0gxVEdrQzhyTTNYTm5pdHJhRHg2WWlQVkQ1UVprVTg?oc=5",
-      "date": "2026-08-18",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Visas",
-      "commentary": "Temporary visa rules have left an Iranian refugee in a prolonged state of uncertainty about their future in Australia. The case illustrates how limited pathways to permanent status can affect people on temporary protection arrangements.",
-      "commentary_pt": "As regras dos vistos temporários deixaram um refugiado iraniano em um estado prolongado de incerteza sobre seu futuro na Austrália. O caso mostra como as poucas vias para a residência permanente podem afetar pessoas em situação de proteção temporária."
-    },
-    {
-      "title": "'Front agents' at centre of latest unlawful migration crackdown - SBS",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxPeGxTeWdPU0ZyaXhuSjhtdUhlejB3RnRyWGxWOGw5LXZyaEdVSEtqRDVORzZmcWRWMU56TDFOcTV1NzVmbVprTVdFdW4tNUJCSVhVZWlJX3Z6U3pjcmZremk4b1pjRGs5aEhiZGljS2VucmRfTmJBU2JpYjd3ZWhBdlFYS3U3QzIydVdiTGtpSnhDeTh1a1dqZHZ1Vlc1Z3I5UWc?oc=5",
-      "date": "2026-08-18",
-      "source": "SBS",
-      "category": "Law & Policy",
-      "commentary": "'Front agents' who facilitate unlawful migration are the focus of the latest enforcement crackdown by authorities. The action aims to protect visa applicants from fraudulent or unauthorised migration services.",
-      "commentary_pt": "Os 'agentes de fachada' que facilitam a migração ilegal são o foco da mais recente operação de fiscalização das autoridades. A medida busca proteger quem solicita visto contra serviços de migração fraudulentos ou não autorizados."
+      "commentary": "There is growing discussion about whether Australia should expand skilled visa pathways to include more foreign tradespeople, given its openness to international students. Any change could create new opportunities for tradespeople seeking to work in Australia.",
+      "commentary_pt": "Cresce o debate sobre se a Austrália deveria ampliar as vias de visto qualificado para incluir mais profissionais de ofícios estrangeiros, já que o país recebe muitos estudantes internacionais. Uma eventual mudança poderia abrir novas oportunidades para trabalhadores dessas áreas que desejam atuar na Austrália."
     }
   ]
 }
