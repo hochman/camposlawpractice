@@ -7,6 +7,7 @@ window.__i18n = {
     "nav-faq": "FAQ",
     "nav-appointment": "Consultation",
     "nav-news": "News",
+    "nav-resources": "Resources",
     "nav-contact": "Contact",
 
     "hero-title": "Your Australian Dream,",
@@ -136,6 +137,7 @@ window.__i18n = {
     "nav-faq": "Perguntas",
     "nav-appointment": "Consulta",
     "nav-news": "Notícias",
+    "nav-resources": "Referências",
     "nav-contact": "Contato",
 
     "hero-title": "Seu Sonho Australiano,",
