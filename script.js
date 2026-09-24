@@ -49,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
     navLinksList.classList.remove('open');
     hamburgerBtn.classList.remove('open');
     hamburgerBtn.setAttribute('aria-expanded', 'false');
+    document.querySelectorAll('.nav-links li.dropdown.open').forEach(li => li.classList.remove('open'));
   }
 
   hamburgerBtn.addEventListener('click', (e) => {
@@ -58,8 +59,16 @@ document.addEventListener("DOMContentLoaded", () => {
     hamburgerBtn.setAttribute('aria-expanded', String(isOpen));
   });
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
+  document.querySelectorAll('.nav-links a:not(.dropdown-toggle)').forEach(link => {
     link.addEventListener('click', closeMenu);
+  });
+
+  document.querySelectorAll('.dropdown-toggle').forEach(toggle => {
+    toggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      toggle.parentElement.classList.toggle('open');
+    });
   });
 
   document.addEventListener('click', (e) => {
