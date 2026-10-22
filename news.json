@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-19T14:23:32Z",
+  "updated": "2026-10-22T12:48:53Z",
   "items": [
     {
       "title": "Home Affairs 'unlawfully' jailed Australian citizen for 945 days, ombudsman reports - ABC News & Headlines – Australian Broadcasting Corporation",
@@ -7,8 +7,8 @@
       "date": "2026-10-15",
       "source": "ABC News & Headlines – Australian Broadcasting Corporation",
       "category": "Law & Policy",
-      "commentary": "The Commonwealth Ombudsman reported that the Department of Home Affairs unlawfully detained an Australian citizen in immigration detention for 945 days. The finding raises questions about identity verification and safeguards within immigration detention decision-making.",
-      "commentary_pt": "A Ouvidoria federal concluiu que o Departamento de Assuntos Internos manteve ilegalmente um cidadão australiano em detenção de imigração por 945 dias. O caso levanta dúvidas sobre a verificação de identidade e as garantias no processo de detenção migratória."
+      "commentary": "An ombudsman report found that the Department of Home Affairs unlawfully detained an Australian citizen in immigration detention for 945 days. The case highlights failures in identity verification and the risks of wrongful detention within the immigration system.",
+      "commentary_pt": "Um relatório do ombudsman concluiu que o Departamento de Assuntos Internos manteve, de forma ilegal, um cidadão australiano em detenção de imigração por 945 dias. O caso evidencia falhas na verificação de identidade e os riscos de detenção indevida dentro do sistema de imigração."
     },
     {
       "title": "'Want mum to stay': Strict visitor visa rules leave Australian families panicking for parents - SBS",
@@ -16,35 +16,8 @@
       "date": "2026-10-14",
       "source": "SBS",
       "category": "Visas",
-      "commentary": "Stricter visitor visa rules are making it harder for Australian families to bring parents over for visits. Applicants face tougher assessments and higher refusal risks, affecting families hoping to reunite temporarily.",
-      "commentary_pt": "Regras mais rígidas para o visto de visitante estão dificultando que famílias australianas tragam os pais para visitas. Os solicitantes enfrentam avaliações mais duras e maior risco de recusa, afetando quem deseja reunir a família temporariamente."
-    },
-    {
-      "title": "Why was Korean left off Australia's priority language list? - SBS",
-      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPQ1llQ2FMUG1HNHRlOHBWWlhxM0hCcVc2dEMtRGV3bzhaaGV1NEc5OUdqWU9YcmltYWlIMkJ0WnFKX3RRenMwQlNvRmp5aG5VVktqZHlScnRNb0lUUmRRY3RoRUd0dlNVSUtaQnAtM0ZUbHR2LTNadXY4OXBOZXRBazRqelEzVTZ1QkFtNi1iTDRBdjROOHhhcGloR2hJdXpob1JXbkF6YllaZHVyc2RuUlBPM25wa3MtRk5RR0ZORnV0Yms?oc=5",
-      "date": "2026-10-14",
-      "source": "SBS",
-      "category": "Law & Policy",
-      "commentary": "A priority language list used in Australia's migration and skills framework left out Korean, prompting debate over the selection criteria. The omission can affect how applicants from certain backgrounds are assessed under skilled and language-related pathways.",
-      "commentary_pt": "Uma lista de idiomas prioritários usada no sistema migratório e de qualificações da Austrália deixou de fora o coreano, gerando discussão sobre os critérios de seleção. A ausência pode influenciar como candidatos de certas origens são avaliados em vias ligadas a competências e idioma."
-    },
-    {
-      "title": "The families being kept apart by new visa rules - SBS",
-      "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNZFVhYnRDYVhiRTFuVGtUOTkyTTJ1dy1PTXJQeW9RSmUxaC00SXVrTkFrakphTUMyVXlSMkJGcF9GcF8yLUVnUzdhY0FzNnlkVV9scXBLTldyVVJXVDROX25wWE0wSU1iYy0tRGdpdTRWcExGb0k2UXFEYWkxcVBzbm1TblhEM0QwZjlnS2Z3RDFCenJpUXFOSFU3MlBCOVc5Umkw?oc=5",
-      "date": "2026-10-13",
-      "source": "SBS",
-      "category": "Visas",
-      "commentary": "New visa rules are keeping some families apart, with changes limiting reunification options for relatives. The practical effect is longer separation and reduced certainty for applicants seeking to join family in Australia.",
-      "commentary_pt": "Novas regras de visto estão mantendo algumas famílias separadas, com mudanças que limitam as opções de reunificação de parentes. Na prática, isso significa separações mais longas e menos segurança para quem busca se juntar à família na Austrália."
-    },
-    {
-      "title": "Migration changes set to embolden abusers who weaponise visa system - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeWdsS0g3eklneEtGaXRsZGRFLWNOMEw1ZWhEQ3J5SWd4bTQ3cnRBRnJPbEF4eFdBTUZLMzdNMkJ6OVFkQXZfWFlhTnFZTWdHbF9QaERBeXY1UkdKYzIwZ2dRcVNock15ZVlrcjRQUjFMMGRDeFk4ejVZUGNCYXVGZk50c1hqUUNjeVcyZ0xpSUNueENmUXA2T2xHZDlobXphUDQ2Z2NnbXJ5YzVndHc?oc=5",
-      "date": "2026-10-11",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Law & Policy",
-      "commentary": "Advocates warn that recent migration changes could be exploited by abusers who use a partner's visa status as a form of control. The concern is that tightened conditions may trap vulnerable people in harmful relationships to maintain their visa.",
-      "commentary_pt": "Especialistas alertam que mudanças recentes na imigração podem ser exploradas por agressores que usam a situação de visto do parceiro como forma de controle. O receio é que condições mais rígidas prendam pessoas vulneráveis em relacionamentos abusivos para manter o visto."
+      "commentary": "Strict visitor visa requirements are making it harder for Australian residents to bring parents and relatives for extended stays. Many families report uncertainty and stress as applications face tighter scrutiny and limited pathways for long-term visits.",
+      "commentary_pt": "Regras rígidas para o visto de visitante estão dificultando que residentes na Austrália tragam pais e familiares para estadias prolongadas. Muitas famílias relatam insegurança e estresse, já que os pedidos enfrentam análise mais rigorosa e poucas opções para visitas de longa duração."
     },
     {
       "title": "Visa Changes: Which jobs are Australia's priority for Skilled Migration? - SBS",
@@ -52,71 +25,17 @@
       "date": "2026-10-09",
       "source": "SBS",
       "category": "Work Visas",
-      "commentary": "Updated visa settings have revised which occupations Australia prioritises for skilled migration. Workers in listed priority fields may find clearer pathways, while those in excluded occupations could face reduced options.",
-      "commentary_pt": "Ajustes nas regras de visto revisaram quais profissões a Austrália prioriza na migração qualificada. Trabalhadores nas áreas listadas podem encontrar caminhos mais claros, enquanto profissionais fora da lista podem ter menos opções."
+      "commentary": "Updated skilled migration arrangements identify which occupations are prioritised for visas in Australia. People applying through skilled pathways should check whether their profession is on the priority list, as this can affect eligibility and processing.",
+      "commentary_pt": "As novas regras de migração qualificada definem quais profissões têm prioridade na concessão de vistos na Austrália. Quem solicita vistos por essa via deve verificar se sua ocupação está na lista prioritária, pois isso pode afetar a elegibilidade e o andamento do pedido."
     },
     {
       "title": "Graduate visas face the axe in Coalition migration overhaul - ABC News & Headlines – Australian Broadcasting Corporation",
       "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxOT1NnelVJaHFMb1RHeHZjdHk2QjFjeFp0bkgxSFZKZTdNZnNzeFFZeEoxdzQ1X3N5X2VfaDZaRjdOYUhiMENBTDN4VzJsSWQtcmdhUHdkWnRWVkdTQlhLNXM0TWVVb3lXUlp6SGVQU0QxV2N2NVJfLUtQbzhsc1JBUzVOSW91czM3RFVCQ2ZiTm9XY2JDbUVn?oc=5",
-      "date": "2026-10-05",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Student Visas",
-      "commentary": "A Coalition migration proposal would scrap the graduate visa, which currently lets international students work in Australia after finishing their studies. Removing it would limit post-study work options and could influence where students choose to study.",
-      "commentary_pt": "Uma proposta de migração da oposição eliminaria o visto de recém-formado, que hoje permite que estudantes internacionais trabalhem na Austrália após concluir os estudos. A extinção reduziria as opções de trabalho pós-graduação e pode influenciar a escolha de destino dos estudantes."
-    },
-    {
-      "title": "New student visa rules introduce extra fees for course changes and crack down on onshore applications - SBS",
-      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNVFBfWVZWZHZjVUM3UFZuc243eEhZbDVqcE1McVhYQ2RXdGxoVmk5NlRaaTlUMnU4d1NiTGtRd1N1RS1yRHdKUGpDaTNidkU2WGRmM0xUc2lmSUhWeFZDRGVQTW1tLUFDT19IMWtyMW1iMWprd3N0MFlqWDF2Z3g3b3h1SDVxdXJGZkd5OW5ic1FHZUVNQ1pwSGNZeG5YeWw3eG51RU5jWmo4NGoxVGVBUHl2dkxWTjdfRWF2UzRaR1h4dUR4VWUxcTlkanMzM2dEa1owSXB4Smlubnl4UzY5elVXUTZFYXJqY0cyZVlTRzJzSWNqNnZoeHAxdERST1I0?oc=5",
-      "date": "2026-10-05",
-      "source": "SBS",
-      "category": "Student Visas",
-      "commentary": "New student visa rules introduce extra fees for changing courses and tighten approval of applications lodged from within Australia. Students may face higher costs and more restrictions when switching programs or applying onshore.",
-      "commentary_pt": "Novas regras do visto de estudante criam taxas adicionais para a troca de cursos e restringem a aprovação de pedidos feitos de dentro da Austrália. Os estudantes podem enfrentar custos mais altos e mais limitações ao mudar de programa ou solicitar o visto já no país."
-    },
-    {
-      "title": "Labor targets ‘visa hopping’ international students in crackdown on ‘permanently temporary’ migration - The Guardian",
-      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSG1wNk5vRm0xVU5vU1JENDcwbUQ3TzcySUU1eVFjOWhIb014bUpKeDIzbDRoTGxTdUhCaUNXQkU2TmFTV3RxRTc2VG5DTE4xc2VjZTJBX01yRXJfNVcweUlIZVFfTEt4ZlVPUk13S3RpcGV2dHNOWTVaODRLRUtZQU40NVI5VkhWbzJxS1BYWkdFZG5zR0YzenhrazJCYTFBZlBSbnVB?oc=5",
-      "date": "2026-10-01",
-      "source": "The Guardian",
-      "category": "Student Visas",
-      "commentary": "The government is targeting 'visa hopping' by international students who move between temporary visas to extend their stay. The crackdown aims to curb 'permanently temporary' migration and may make chaining visas harder.",
-      "commentary_pt": "O governo está mirando o chamado 'salto de vistos' por estudantes internacionais que trocam de visto temporário para prolongar a permanência. A medida busca conter a migração 'permanentemente temporária' e pode dificultar o encadeamento de vistos."
-    },
-    {
-      "title": "Labor will go after lawyers trying to 'game' the visa system - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOYXY2b1VIek9NNXlQV2dCNUstUk1wSlk4NHVMOUFfZ1BPejhoRWFaNG02TXJTeEtvNjl2cGRoQW5zWlc1VEY4V3c2dlFNbU10ZW5MSHQ5LTBuand0a2QxY3JVdEVjUDVJM0FfTUlxLWVGUE1GZ2VfQllFQzUwYlRnNTJjRTc1R1ZuUFRRel9QY1UwaWdJTFg4WVl5WjA1MGNxekE?oc=5",
-      "date": "2026-10-01",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Law & Policy",
-      "commentary": "The government announced it will act against lawyers and agents accused of manipulating the visa system. Tighter oversight of migration advisers could affect how applications are prepared and lodged.",
-      "commentary_pt": "O governo anunciou que vai agir contra advogados e agentes acusados de manipular o sistema de vistos. Uma fiscalização mais rígida sobre consultores migratórios pode mudar a forma como os pedidos são preparados e enviados."
-    },
-    {
-      "title": "Remote businesses fear working holiday visa changes will mean fewer 'essential' backpackers - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMisgFBVV95cUxPSVE1UjdOV3pKd2FUU2hXTXA3QmZ5T0ZHdUdTQ0ZWWk1SdWc3Nk9KVVFpZFhlZGlKQWg4Slpmb19JYlZHRFpGUlBYZ3VhemVEYTNRUG85ZlpKejhqYmk3Ym91bVNTZzB3TElhZ2RNRVRkQ2RsMXZYQndQMHZ1V0Y0ZGVUY1RoNEZwZkViVm1fdUJ3ZFNQWjlUN1BsTGZNX1dpTG85Y2dOcXFMQkdTdVlOWlN3?oc=5",
-      "date": "2026-10-01",
+      "date": "2026-10-06",
       "source": "ABC News & Headlines – Australian Broadcasting Corporation",
       "category": "Work Visas",
-      "commentary": "Changes to the working holiday visa have raised concerns among remote businesses that rely on backpacker labour. Fewer eligible travellers could reduce the seasonal and essential workforce in some regions.",
-      "commentary_pt": "Mudanças no visto de férias e trabalho preocupam empresas de regiões remotas que dependem da mão de obra de mochileiros. Menos viajantes elegíveis pode reduzir a força de trabalho sazonal e essencial em algumas áreas."
-    },
-    {
-      "title": "Families scramble to find childcare after visa slowdown hits au pairs - SMH.com.au",
-      "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOeURzRkU0ZGtKQjJrTE5haDFnWVExRjZVd0plQkl3QVRsclRKSEJXYnZFZktEaEtzazUwcENvWUdGMDI4Q0dBaV94cGQ5WWk5bUhqR0tkMGd2dHFYOEhaa2kzRmpFQ05wV0Njem1LZlJWOWJoT2dLTXdoeExja25BYWJpbXgzdXRFQlp3aGpXb0s5QlNoa01pMUhUZ1JLSTdhblJkbEZKVTI3VXg2N3ZHUTRWVm1pcldmOFdfa0loSjUxR0Exd3RKSjlB?oc=5",
-      "date": "2026-09-27",
-      "source": "SMH.com.au",
-      "category": "Visas",
-      "commentary": "A slowdown in visa processing has disrupted the arrival of au pairs, leaving families struggling to arrange childcare. Delays in these visas can create practical gaps for households relying on this arrangement.",
-      "commentary_pt": "A lentidão no processamento de vistos atrapalhou a chegada de au pairs, deixando famílias sem conseguir organizar os cuidados com os filhos. Os atrasos nesses vistos podem gerar dificuldades práticas para lares que dependem desse tipo de arranjo."
-    },
-    {
-      "title": "'Unbearable emotional weight': Partner visa delays come at high personal cost - ABC News & Headlines – Australian Broadcasting Corporation",
-      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFFMQnlfWjA1Y0tiUGtxcWVSaVlVOGVjVmJsUW4zUHM0MTF4OHRoaFdkWllqQlZGSlJxZE0zSWZFNFZwbEVuLVc0SEhvam1sX0YzYjFZZ0ZMR3NLUTJzY0xoVzc3X0ItTmtqS24wVl9BRkF5ZWxuQnpweWFReVdRUHM0ckszTHVINHBsNnExa1JwMkRDZkRz?oc=5",
-      "date": "2026-09-25",
-      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
-      "category": "Permanent Residency",
-      "commentary": "Partner visa processing delays are causing significant emotional and personal strain for couples waiting to be together. Long wait times leave applicants uncertain about their future and ability to settle in Australia.",
-      "commentary_pt": "Os atrasos no processamento do visto de parceiro estão causando grande sofrimento emocional e pessoal para casais que esperam ficar juntos. As longas esperas deixam os solicitantes inseguros sobre o futuro e sobre a possibilidade de se estabelecer na Austrália."
+      "commentary": "A proposed migration overhaul includes plans to abolish graduate visas that allow international students to work in Australia after finishing their studies. If implemented, this would remove a key post-study pathway and affect graduates' ability to gain local work experience.",
+      "commentary_pt": "Uma proposta de reforma migratória prevê o fim dos vistos de graduado, que permitem a estudantes internacionais trabalharem na Austrália após concluírem os estudos. Se aprovada, a medida eliminaria uma via importante pós-formatura e afetaria a possibilidade de recém-formados adquirirem experiência profissional local."
     },
     {
       "title": "Angus Taylor vows biggest cut to migration in Australia’s history, slashing 650,000 temporary visas - The Guardian",
@@ -124,8 +43,17 @@
       "date": "2026-10-05",
       "source": "The Guardian",
       "category": "Law & Policy",
-      "commentary": "A Coalition plan proposes the largest migration cut in Australia's history, including slashing around 650,000 temporary visas. If adopted, it could sharply reduce available temporary visa places and reshape eligibility across several categories.",
-      "commentary_pt": "Um plano da oposição propõe o maior corte de imigração da história da Austrália, incluindo a redução de cerca de 650 mil vistos temporários. Se adotado, poderia reduzir drasticamente as vagas de vistos temporários e reformular os critérios de várias categorias."
+      "commentary": "An opposition proposal would make the largest migration cut in Australia's history, reducing temporary visas by around 650,000 and targeting a net migration figure of 100,000. If adopted, such a policy would significantly tighten access across multiple visa categories.",
+      "commentary_pt": "Uma proposta da oposição prevê o maior corte na imigração da história da Austrália, reduzindo cerca de 650 mil vistos temporários e mirando uma migração líquida de 100 mil pessoas. Caso seja adotada, a medida restringiria de forma expressiva o acesso a diversas categorias de visto."
+    },
+    {
+      "title": "New student visa rules introduce extra fees for course changes and crack down on onshore applications - SBS",
+      "link": "https://news.google.com/rss/articles/CBMigAJBVV95cUxNVFBfWVZWZHZjVUM3UFZuc243eEhZbDVqcE1McVhYQ2RXdGxoVmk5NlRaaTlUMnU4d1NiTGtRd1N1RS1yRHdKUGpDaTNidkU2WGRmM0xUc2lmSUhWeFZDRGVQTW1tLUFDT19IMWtyMW1iMWprd3N0MFlqWDF2Z3g3b3h1SDVxdXJGZkd5OW5ic1FHZUVNQ1pwSGNZeG5YeWw3eG51RU5jWmo4NGoxVGVBUHl2dkxWTjdfRWF2UzRaR1h4dUR4VWUxcTlkanMzM2dEa1owSXB4Smlubnl4UzY5elVXUTZFYXJqY0cyZVlTRzJzSWNqNnZoeHAxdERST1I0?oc=5",
+      "date": "2026-10-05",
+      "source": "SBS",
+      "category": "Student Visas",
+      "commentary": "New student visa rules introduce extra fees for changing courses and tighten restrictions on applications made within Australia. International students should factor in additional costs and plan carefully, as switching courses or applying onshore becomes more difficult.",
+      "commentary_pt": "Novas regras do visto de estudante criam taxas adicionais para a troca de curso e restringem pedidos feitos dentro da Austrália. Estudantes internacionais devem considerar esses custos extras e planejar com cuidado, já que mudar de curso ou solicitar visto em território australiano ficou mais difícil."
     },
     {
       "title": "‘Sharp practices’ by rogue migration lawyers in Labor’s crosshairs - SMH.com.au",
@@ -133,8 +61,80 @@
       "date": "2026-10-02",
       "source": "SMH.com.au",
       "category": "Law & Policy",
-      "commentary": "The government is targeting what it describes as 'sharp practices' by some migration lawyers within the visa system. Increased scrutiny of advisers may change standards and accountability for those handling visa applications.",
-      "commentary_pt": "O governo está mirando o que chama de 'práticas abusivas' de alguns advogados de imigração dentro do sistema de vistos. Uma supervisão maior sobre os consultores pode mudar os padrões e a responsabilização de quem cuida dos pedidos de visto."
+      "commentary": "The government is moving to crack down on misconduct by migration lawyers and agents accused of manipulating the visa system. Applicants are advised to use reputable, registered representatives, as regulatory action aims to curb improper practices in the sector.",
+      "commentary_pt": "O governo pretende reprimir condutas inadequadas de advogados e agentes de migração acusados de manipular o sistema de vistos. Recomenda-se que os solicitantes recorram a representantes confiáveis e registrados, pois as medidas visam coibir práticas irregulares no setor."
+    },
+    {
+      "title": "Labor's working holiday visa policy risks regional seats, experts say - ABC News & Headlines – Australian Broadcasting Corporation",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOXy1XaEllSHB1R3dabE5sSVlGWGd2LXRuWXBaS0lOMVZ5a09kTW9ta2NmRmRhVjU4R2s1RVR6M09ZdGd3bVMtc0tfMk12LVlDQmdwcmYwZGhONk8ya1pFZ3JUWXhBclFvZmxmTXZ1aEVVY2lGdW0yR2paX19Sc1RxVjRray1saVpadnRNUDVuT2xKMGc3a2EzM2VzMGpIaGVZ?oc=5",
+      "date": "2026-10-02",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "category": "Work Visas",
+      "commentary": "Proposed changes to the working holiday visa could affect the availability of seasonal and regional workers in Australia. The policy raises concerns for industries that rely on backpacker labour to fill essential roles in remote and rural areas.",
+      "commentary_pt": "Mudanças propostas no visto de férias e trabalho podem afetar a disponibilidade de trabalhadores sazonais e regionais na Austrália. A política preocupa setores que dependem da mão de obra de mochileiros para preencher funções essenciais em áreas remotas e rurais."
+    },
+    {
+      "title": "Labor targets ‘visa hopping’ international students in crackdown on ‘permanently temporary’ migration - The Guardian",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxQSG1wNk5vRm0xVU5vU1JENDcwbUQ3TzcySUU1eVFjOWhIb014bUpKeDIzbDRoTGxTdUhCaUNXQkU2TmFTV3RxRTc2VG5DTE4xc2VjZTJBX01yRXJfNVcweUlIZVFfTEt4ZlVPUk13S3RpcGV2dHNOWTVaODRLRUtZQU40NVI5VkhWbzJxS1BYWkdFZG5zR0YzenhrazJCYTFBZlBSbnVB?oc=5",
+      "date": "2026-10-01",
+      "source": "The Guardian",
+      "category": "Student Visas",
+      "commentary": "The government is targeting so-called 'visa hopping' by international students who repeatedly move between temporary visas to stay in Australia. The measures aim to reduce 'permanently temporary' migration, potentially limiting options for students seeking to extend their stay.",
+      "commentary_pt": "O governo está mirando o chamado 'salto de vistos', prática de estudantes internacionais que trocam repetidamente de vistos temporários para permanecer na Austrália. As medidas buscam reduzir a migração 'permanentemente temporária' e podem limitar as opções de quem quer prolongar a estadia."
+    },
+    {
+      "title": "Migration policy: Extra $1200 for visa student course jumpers - Nine.com.au",
+      "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxPM3l1ZHk3SzJWXzUxbVEtLXdNeENrYVdjVlFwMDJCYWVxS2hJMXBHbE9GLUMyWlhzZXEwWkdoRmxvWXdTY3BIN3BvUDk4X0Z2UlFMMXVvSFdNamdES2pVM2hfb18zSkxGbjhNYWs1REtjeTdUbHRZTkYwQjFmNU1SZi1KZkoxUUE2Sm5ibWgwUUFNakJ2UkF4QWNZZkRXcmRKVUZQSk1jMkZwT01CYzNLNDEzMTlxTGsxS0FOdzRhZldHV0k?oc=5",
+      "date": "2026-10-01",
+      "source": "Nine.com.au",
+      "category": "Student Visas",
+      "commentary": "Under new migration policy, students who switch courses will face an additional fee of around $1,200. The change increases the financial burden for international students who change their study plans after arriving in Australia.",
+      "commentary_pt": "Pela nova política migratória, estudantes que trocarem de curso pagarão uma taxa adicional de cerca de 1.200 dólares. A mudança aumenta o custo para estudantes internacionais que alteram seus planos de estudo após chegarem à Austrália."
+    },
+    {
+      "title": "'Hundreds' of au pairs stuck outside country amid visa delays - ABC News & Headlines – Australian Broadcasting Corporation",
+      "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxORHNmc2MzWmszRGxDNS1WUTVYbmF5V0ZqUHFRYktEMFJPYVcybWtwY1Yzc1RDWlc1d0pOMGhEY2RIMVR0M2k3eV9JbUxvS2Jzb3RLVTFMSzR4YWZLdkN5NGxyUFN3ZXdrY3pnT0kzeVZNdGVTQXJZOTI0Mk9jQU5vdUd5amdNZU9GLS1uZU9iQ2dJTHRReGp0dUVMTXFUZmEz?oc=5",
+      "date": "2026-09-30",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "category": "Visas",
+      "commentary": "Visa processing delays have left hundreds of au pairs unable to enter Australia. The backlog is disrupting arrangements for families who rely on au pairs and highlights broader slowdowns in certain visa categories.",
+      "commentary_pt": "Atrasos no processamento de vistos deixaram centenas de au pairs sem conseguir entrar na Austrália. O acúmulo de pedidos prejudica as famílias que dependem desse serviço e evidencia a lentidão em determinadas categorias de visto."
+    },
+    {
+      "title": "Working holiday visa changes driving backpackers away, employers say - ABC News & Headlines – Australian Broadcasting Corporation",
+      "link": "https://news.google.com/rss/articles/CBMipgFBVV95cUxPRms2V1ZGMmFZdWVXSEQzWXlkMkVESkQyeWd3NGFUT0RGV0JLdEJlMUxsaWtZOHFpMVRoUmFwNF9QZUZrLURaMUVYU0tleUhMQ2xuTEdnUmNxODdFNWpVVmNESTJzQU1CYTlGVk5kNW9QOE5IZ2VFM3k2X29hWlZVY0hkTm9VSnRlMjZRNzBDVE9hWnRWMHNxRUtpNjBRZlQ0R1hHM3Fn?oc=5",
+      "date": "2026-09-28",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "category": "Work Visas",
+      "commentary": "Employers report that changes to working holiday visas are driving backpackers away, reducing the workforce available for seasonal jobs. The shift could affect staffing in agriculture, hospitality and other sectors reliant on temporary workers.",
+      "commentary_pt": "Empregadores relatam que mudanças nos vistos de férias e trabalho estão afastando mochileiros, reduzindo a mão de obra disponível para empregos sazonais. A alteração pode afetar a contratação na agricultura, no setor de hospitalidade e em outras áreas que dependem de trabalhadores temporários."
+    },
+    {
+      "title": "'Unbearable emotional weight': Partner visa delays come at high personal cost - ABC News & Headlines – Australian Broadcasting Corporation",
+      "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxPOFFMQnlfWjA1Y0tiUGtxcWVSaVlVOGVjVmJsUW4zUHM0MTF4OHRoaFdkWllqQlZGSlJxZE0zSWZFNFZwbEVuLVc0SEhvam1sX0YzYjFZZ0ZMR3NLUTJzY0xoVzc3X0ItTmtqS24wVl9BRkF5ZWxuQnpweWFReVdRUHM0ckszTHVINHBsNnExa1JwMkRDZkRz?oc=5",
+      "date": "2026-09-25",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "category": "Visas",
+      "commentary": "Lengthy partner visa processing delays are causing significant emotional and financial hardship for couples waiting to reunite in Australia. The delays leave many applicants in prolonged uncertainty while separated from their partners.",
+      "commentary_pt": "Longos atrasos no processamento dos vistos de parceiro estão causando grande sofrimento emocional e financeiro a casais que aguardam para se reunir na Austrália. A demora deixa muitos solicitantes em prolongada incerteza, separados de seus parceiros."
+    },
+    {
+      "title": "Migration changes set to embolden abusers who weaponise visa system - ABC News & Headlines – Australian Broadcasting Corporation",
+      "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNeWdsS0g3eklneEtGaXRsZGRFLWNOMEw1ZWhEQ3J5SWd4bTQ3cnRBRnJPbEF4eFdBTUZLMzdNMkJ6OVFkQXZfWFlhTnFZTWdHbF9QaERBeXY1UkdKYzIwZ2dRcVNock15ZVlrcjRQUjFMMGRDeFk4ejVZUGNCYXVGZk50c1hqUUNjeVcyZ0xpSUNueENmUXA2T2xHZDlobXphUDQ2Z2NnbXJ5YzVndHc?oc=5",
+      "date": "2026-10-11",
+      "source": "ABC News & Headlines – Australian Broadcasting Corporation",
+      "category": "Law & Policy",
+      "commentary": "Advocates warn that proposed migration changes could empower abusers who use the visa system to control or exploit partners and dependents. The concern is that stricter rules may increase vulnerability for people whose residency depends on another person.",
+      "commentary_pt": "Especialistas alertam que mudanças migratórias propostas podem favorecer agressores que usam o sistema de vistos para controlar ou explorar parceiros e dependentes. A preocupação é que regras mais rígidas aumentem a vulnerabilidade de pessoas cuja permanência depende de outra pessoa."
+    },
+    {
+      "title": "Australian colleges warned ‘do not try to game’ student visas after last-minute enrolments for cancelled diploma soar - The Guardian",
+      "link": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxOZlpQM2NVTjhncWVGOHZycmYzRDN6bXdkSmY3VngwOUVVc2Vyblh0QS1HTE1SRjF0S2xOeDMzaXhGc05RZkJXX25KNHZIM0ZQNkNjaG11bjd6UU5BQWtwaWk4WHE4alpqeXUtbUZscklPMjBVZnlHRjZZYUZjR3BjNHhRbC16dHZ0enNNbkNDdGNfTWQtODRtTXpoSkczYmk2c3E0MFR5ZThkSUNQLUZkbjIxYWpnQWdoXzZ5R1BNdTFYZHZtRmgwU2lET0t6SVhXTmdBTml3?oc=5",
+      "date": "2026-09-30",
+      "source": "The Guardian",
+      "category": "Student Visas",
+      "commentary": "Colleges have been warned not to exploit student visa rules after a surge in last-minute enrolments for a diploma that was being cancelled. Authorities signalled closer scrutiny of enrolment practices to prevent misuse of the student visa system.",
+      "commentary_pt": "Faculdades foram advertidas a não explorar as regras do visto de estudante após um aumento de matrículas de última hora em um diploma que estava sendo cancelado. As autoridades sinalizaram maior fiscalização das práticas de matrícula para evitar o uso indevido do sistema de vistos estudantis."
     }
   ]
 }
